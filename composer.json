@@ -1,0 +1,13 @@
+{
+     "name" : "gdgbhu/GmailApi",
+"description": "A demo for Gmail API with PHP",
+"require": {
+     "google/apiclient": "dev-master",
+     "pear/mail_mime": "dev-master",
+     "pear/pear_exception": "dev-master"
+},
+"config": {
+     "preferred-install": "dist"
+},
+"minimum-stability": "stable"
+}
