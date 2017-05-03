@@ -38,8 +38,7 @@ if (isset($_SESSION['access_token'])) {
      echo 'Click <a href=" '.$loginUrl. ' ">here</a> to login.';
 }
 
-// Chcek if we have an access token ready for API call
-
+// Check if we have an access token ready for API call
 try
 {
      if (isset($_SESSION['access_token']) && $client->getAccessToken()) {
@@ -47,61 +46,55 @@ try
           $list = $service->users_messages->listUsersMessages('me',['maxResults'=>4,'labelIds'=> 'INBOX']);
           $messageList = $list->getMessages();
           // var_dump($messageList);
-          print "<pre>";
-          print_r($messageList);
-          print "</pre>";
+          // print "<pre>";
+          // print_r($messageList);
+          // print "</pre>";
 
           foreach($messageList as $id_key=>$id_val)
           {
-               echo "$id_key=> $id_val->id"?><br  /><?php
+               echo "<strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]"?><br><?php //displays the index number with the message
                $id=$id_val->id;
                $messages = $service->users_messages->get('me',$id);
-               print_r($messages->getSnippet());?><br  /><?php
-
+               // print_r($messages->getSnippet());
 
                $data = $messages->getSnippet();
                $emotions = substr($data, strpos($data, ":") +1);
-               echo $emotions;?><br  /><?php
+               echo "<strong>Content:</strong> $emotions";?><br><?php // displays the content
+
+               foreach ($messages->payload->headers as $dateEmail=>$value) {
+                    if ($dateEmail == 1) {
+                    // echo $value->value;
+                    // displays the entire string under value
+                    $date = substr($value->value, strpos($value->value, ";") +1);
+                    echo "<strong>Date:</strong> $date";?><br><?php // displays the parsed date
+               }
+                    if ($dateEmail == 5) {
+                         // echo $value->value;
+                         $pieces = explode('of',$value->value);
+                         $mail=substr($pieces[1],0,-1);
+                         // echo $mail;
+                         //displays the entire string after of
+                         $cut_position = strpos($mail, 'designates'); // remove the +1 if you don't want the ? included
+                         $string = substr($mail, 0, $cut_position);
+                         echo "<strong>Email Id:</strong> $string";?><br><?php ?><br><?php // displays the email id
+
+                    }
+               }
+
+               // print "<pre>";
+               // print_r($messages); // This prints the entire detail of the message i.e. Message Id,Email Id, Date and time, Message body.
+               // print "</pre>";
+
                     }
 
+                    exit();
 
-          // $id = '15badc7f4a507ddd';
-
-          // ------------------------------------------NEW CODE STARTS HERE-------------------------------------------------------
-
-          // ------------------------------------------NEW CODE ENDS HERE-------------------------------------------------------
-          exit();
-
-          // ------------------------------------------CODE TO SEND EMAIL STARTS HERE-------------------------------------------------------
-
-          // $id = '15badc7f4a507ddd';
-          // $messages = $service->users_messages->get('me',$id);
-          // var_dump($messages->getSnippet());
-          // exit();
-
-          // $mime = new Mail_mime();
-          // $mime->setSubject('Testing Gmail API');
-          // $mime->setTXTBody('This is a demo Email');
-          // $mime->setHTMLBody('This is an <strong>HTML</strong> email');
-          // $mime->addCc('souvik.pal@innoraft.com');
-          // $message_body = $mime->getMessage();
-          //
-          // $encodeMessage = base64url_encode($message_body);
-          //
-          // $message = new Google_Service_Gmail_Message();
-          // $message->setRaw($message_body);
-          //
-          // $send = $service->users_messages->send('me',$message);
-          // var_dump($send);
-          // exit();
-
-          // ------------------------------------------CODE TO SEND EMAIL ENDS HERE-------------------------------------------------------
 
 
      }
 
 } catch (Google_Auth_Exception $e) {
      echo 'Looks like your access token has expired. Click <a href=" '.$loginUrl. ' ">here</a> to login.';
-}
+     }
 
  ?>
