@@ -1,0 +1,1 @@
+This project relates to sending an emotion over an Email using PHP and GMail API
