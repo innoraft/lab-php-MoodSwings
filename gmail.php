@@ -1,5 +1,15 @@
 <?php
 
+include 'dbconfig.php';
+
+/*Starting mysql connection*/
+// $db = mysql_connect( 'localhost', 'root', 'ascii' );
+// mysql_select_db( 'moodswing', $db);
+// if(!$db){
+//      die("connection failed: ". mysql_error());
+// }
+/*ending*/
+
 // Start Session
 session_start();
 
@@ -58,6 +68,15 @@ try
                // print_r($messages->getSnippet());
 
                $data = $messages->getSnippet();
+               // echo "<strong>String:</strong> $data";
+                // displays the message snippet
+
+               $cut_position = strpos($data, ':'); // remove the +1 if you don't want the ? included
+               $string= substr($data, 0, $cut_position);
+               $activity = substr($string, strpos($string, ";") +1);
+               echo "<strong>Activity:</strong> $activity";?><br><?php // displays the activity
+
+
                $emotions = substr($data, strpos($data, ":") +1);
                echo "<strong>Content:</strong> $emotions";?><br><?php // displays the content
 
@@ -65,8 +84,11 @@ try
                     if ($dateEmail == 1) {
                     // echo $value->value;
                     // displays the entire string under value
-                    $date = substr($value->value, strpos($value->value, ";") +1);
-                    echo "<strong>Date:</strong> $date";?><br><?php // displays the parsed date
+                    $dateString = substr($value->value, strpos($value->value, ";") +1);
+                    $gotDate = new DateTime($dateString);
+                    $date =$gotDate->format('Y-m-d H:i:s');
+                    $x = strtotime($date);
+                    echo "<strong>Date:</strong> $x";?><br><?php // displays the date and time
                }
                     if ($dateEmail == 5) {
                          // echo $value->value;
@@ -75,9 +97,15 @@ try
                          // echo $mail;
                          //displays the entire string after of
                          $cut_position = strpos($mail, 'designates'); // remove the +1 if you don't want the ? included
-                         $string = substr($mail, 0, $cut_position);
-                         echo "<strong>Email Id:</strong> $string";?><br><?php ?><br><?php // displays the email id
+                         $stringEmail = substr($mail, 0, $cut_position);
+                         echo "<strong>Email Id:</strong> $stringEmail";?><br><?php ?><br><?php // displays the email id
 
+                         $sql=mysql_query("insert into Messages(ID, MessageId, Activity, Content, Date, EmailId) VALUES (0, '$id', '$activity', '$emotions', '$date', '$stringEmail')");
+                         if ($sql) {
+                              echo "New record created successfully";
+                         } else {
+                              echo "Error: " . $sql . "<br>" . mysql_error();
+                         }
                     }
                }
 
@@ -93,8 +121,11 @@ try
 
      }
 
-} catch (Google_Auth_Exception $e) {
+}catch (Google_Auth_Exception $e) {
      echo 'Looks like your access token has expired. Click <a href=" '.$loginUrl. ' ">here</a> to login.';
      }
-
+//message number=>message Id
+//Content
+//Date
+//Email Id
  ?>
