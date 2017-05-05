@@ -16,7 +16,7 @@ try
 
           foreach($messageList as $id_key=>$id_val)
           {
-               echo "<strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]"?><br><?php //displays the index number with the message
+               echo "<strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]<br>"; //displays the index number with the message
                $id=$id_val->id;
                $messages = $service->users_messages->get('me',$id);
                // print_r($messages->getSnippet());
@@ -28,11 +28,11 @@ try
                $cut_position = strpos($data, ':'); // remove the +1 if you don't want the ? included
                $string= substr($data, 0, $cut_position);
                $activity = substr($string, strpos($string, ";") +1);
-               echo "<strong>Activity:</strong> $activity";?><br><?php // displays the activity
+               echo "<strong>Activity:</strong> $activity<br>"; // displays the activity
 
 
                $emotions = substr($data, strpos($data, ":") +1);
-               echo "<strong>Content:</strong> $emotions";?><br><?php // displays the content
+               echo "<strong>Content:</strong> $emotions<br>"; // displays the content
 
                foreach ($messages->payload->headers as $dateEmail=>$value) {
                     if ($dateEmail == 1) {
@@ -42,7 +42,7 @@ try
                     $gotDate = new DateTime($dateString);
                     $date =$gotDate->format('Y-m-d H:i:s');
                     $x = strtotime($date);
-                    echo "<strong>Date:</strong> $x";?><br><?php // displays the date and time
+                    echo "<strong>Date:</strong> $x<br>"; // displays the date and time
                }
                     if ($dateEmail == 5) {
                          // echo $value->value;
@@ -52,7 +52,7 @@ try
                          //displays the entire string after of
                          $cut_position = strpos($mail, 'designates'); // remove the +1 if you don't want the ? included
                          $stringEmail = substr($mail, 0, $cut_position);
-                         echo "<strong>Email Id:</strong> $stringEmail";?><br><?php ?><br><?php // displays the email id
+                         echo "<strong>Email Id:</strong> $stringEmail<br><br>"; // displays the email id
 
                          $sql=mysql_query("insert into Messages(ID, MessageId, Activity, Content, Date, EmailId) VALUES (0, '$id', '$activity', '$emotions', '$date', '$stringEmail')");
                          if ($sql) {
@@ -82,5 +82,4 @@ try
 //Content
 //Date
 //Email Id
-
 ?>
