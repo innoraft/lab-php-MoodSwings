@@ -23,7 +23,7 @@ if (isset($_REQUEST['logout'])) {
      unset($_SESSION['access_token']);
 }
 
-// Check if we have an authorization token
+// Check if we have an authorization token.
 if (isset($_GET['code'])) {
      $client->authenticate($_GET['code']);
      $_SESSION['access_token'] = $client->getAccessToken();
@@ -53,7 +53,7 @@ try
 
           foreach($messageList as $id_key=>$id_val)
           {
-               echo "<strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]<br>"; //displays the index number with the message
+               echo "<br><strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]<br>"; //displays the index number with the message
                $id=$id_val->id;
                $messages = $service->users_messages->get('me',$id);
                // print_r($messages->getSnippet());
@@ -68,7 +68,8 @@ try
                echo "<strong>Activity:</strong> $activity<br>"; // displays the activity
 
 
-               $emotions = substr($data, strpos($data, ":") +1);
+               $content = substr($data, strpos($data, ":") +1);
+               $emotions = trim($content); // Triming the spaces
                echo "<strong>Content:</strong> $emotions<br>"; // displays the content
 
                foreach ($messages->payload->headers as $dateEmail=>$value) {
@@ -78,8 +79,8 @@ try
                     $dateString = substr($value->value, strpos($value->value, ";") +1);
                     $gotDate = new DateTime($dateString);
                     $date =$gotDate->format('Y-m-d H:i:s');
-                    $x = strtotime($date);
-                    echo "<strong>Date:</strong> $x<br>"; // displays the date and time
+                    $timestamp = strtotime($date);
+                    echo "<strong>Date:</strong> $date<br>"; // displays the date and time
                }
                     if ($dateEmail == 5) {
                          // echo $value->value;
