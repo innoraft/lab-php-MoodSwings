@@ -1,0 +1,52 @@
+To enter into mysql: mysql -u root -p;
+Database name: moodswing
+Table name: Messages
+
+1. CREATE DATABASE moodswing;
+2. use moodswing;
+3. CREATE TABLE Messages
+     (
+          MessageId varchar(50) NOT NULL PRIMARY KEY,
+          Activity varchar(50),
+          Content varchar(50),
+          Date date,
+          EmailId varchar(100)
+     );
+4. select *from Messages;
+
+$sql=mysql_query("insert into Messages( MessageId, Activity, Content, Date, EmailId) VALUES ( '$id', '$activity', '$emotions', '$date', '$stringEmail')");
+
+Message number = $id_key
+Message Id = $id_val->id
+Activity = $activity
+Content = $emotions
+Date = $date
+Email Id = $stringEmail
+
+5. CREATE TABLE Users
+     (
+     EmailId varchar(100) UNIQUE KEY,
+     Password varchar(50)
+     );
+
+Always remember to delete helpers,vendor,db.txt
+
+echo "<table>
+ <tr>
+   <td >  MessageId </td>
+   <td >  Activity </td>
+   <td >  Content</td>
+   <td >  Date</td>
+   <td >  EmailId</td>
+ </tr>";
+
+ while($row=mysql_fetch_assoc($sql))
+ {
+ echo "<tr>";
+ echo "<td>".$row['MessageId']."</td>";
+ echo "<td>".$row['Activity']."</td>";
+ echo "<td>".$row['Content']."</td>";
+ echo "<td>".$row['Date']."</td>";
+ echo "<td>".$row['EmailId']."</td>";
+ echo "</tr>";
+ }
