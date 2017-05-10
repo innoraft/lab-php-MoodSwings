@@ -16,7 +16,7 @@
     <div class="container">
 
 
-        <form action="loggin.php" class="form-signin" method="post" id="register-form">
+        <form action="login.php" class="form-signin" method="post" id="register-form">
 
             <h2 class="form-signin-heading">Login</h2><hr />
 

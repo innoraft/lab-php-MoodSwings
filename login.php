@@ -23,9 +23,9 @@ if(isset($_POST['btn-login']))
           $get_value= mysql_fetch_assoc($sql);
 
           // Fetches the id, email and password respectively.
-          $get_user_id=$get_value['id'];
-          $get_mail= $get_value['email'];
-          $get_pass= $get_value['password'];
+          $get_user_id=$get_value['UserRoleId'];
+          $get_mail= $get_value['EmailId'];
+          $get_pass= $get_value['Password'];
 
           // Checking if the database is not empty i.e. if there is atleast one row then the following code will be executed.
           if($sql_row>0)
@@ -36,19 +36,31 @@ if(isset($_POST['btn-login']))
                               // Comparing the password recieved from $get_pass and $password.
                               if(strcasecmp($get_pass,$password)==0)
                                    {
-                                        // Storing a value in a $_SESSION[''] variable means it can be accessed from other files also.
-                                        $_SESSION['mail']= $get_mail;
-                                        header('location:adminhome.php?msg=successful');
+
+                                        if($get_user_id==1)
+                                             {
+                                                  // Storing a value in a $_SESSION[''] variable means it can be accessed from other files also.
+                                                  $_SESSION['EmailId']= $get_mail;
+                                                  header('location:gmail.php?msg=successful');
+                                             }
+                                             else{
+                                                  header('location:displayHtml.php?msg=successful');
+
+                                             }
                                    }
                                    else {
-                                        echo "password invalid";
+                                        echo "Invalid Password";
                                    }
                               }
-                         else
-                              echo "email password invalid";
+                         else{
+                              echo "email invalid";
+                         }
+
                }
-               else
+               else{
                     echo "unsuccessful";
+                    header('location:resgHtml.php?msg=successful');
+               }
 
      }
 
