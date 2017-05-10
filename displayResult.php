@@ -24,6 +24,7 @@ if(isset($_POST['btn-save']))
      // This loop iterates through all the rows and prints till the last value from the selected date range.
     while($row=mysql_fetch_assoc($sql))
           {
+               
 
                // print "<pre>";
                //  var_dump($row);

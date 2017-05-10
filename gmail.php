@@ -12,9 +12,9 @@ require 'vendor/autoload.php';
 
 // Create Google Client
 $client = new Google_Client();
-$client->setClientId('CLIENT_ID');
-$client->setClientSecret('CLIENT_SECRET');
-$client->setRedirectUri('REDIRECT_URI');
+$client->setClientId('657745825585-vr6qun12f9r7ftalcaph6kj3t6h37ac8.apps.googleusercontent.com');
+$client->setClientSecret('0VvbRvDPCyZN-f7n0_BM8Wv6');
+$client->setRedirectUri('http://localhost/Project%20level%203/devD2/gmail.php');
 $client->addScope('https://mail.google.com/');
 
 // Create Gmail Service

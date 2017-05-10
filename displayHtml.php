@@ -16,7 +16,7 @@
     <div class="container">
 
 
-        <form action="display.php" class="form-signin" method="post" id="register-form">
+        <form action="displayResult.php" class="form-signin" method="post" id="register-form">
 
             <h2 class="form-signin-heading">Display data</h2><hr />
 
@@ -45,6 +45,43 @@
     </div>
 
 </div>
+
+<?php
+include 'dbconfig.php';
+
+
+    // Query to extract data from a given date range.
+    $sql = mysql_query("SELECT  *  FROM Messages");
+    $row=mysql_fetch_assoc($sql);
+
+    // Displaying the data extracted from running the query in a tabular format.
+    echo "<table>
+     <tr>
+       <td >  Date</td>
+       <td >  EmailId</td>
+       <td >  Activity </td>
+       <td >  Content</td>
+     </tr>";
+
+     // This loop iterates through all the rows and prints till the last value from the selected date range.
+    while($row=mysql_fetch_assoc($sql))
+          {
+               // print "<pre>";
+               //  var_dump($row);
+               //  print "</pre>";
+                echo "<tr>";
+                echo "<td>".$row['Date']."</td>";
+                echo "<td>".$row['EmailId']."</td>";
+                echo "<td>".$row['Activity']."</td>";
+                echo "<td>".$row['Content']."</td>";
+                echo "</tr>";
+
+           }
+
+
+
+?>
+
 
 <script src="js/bootstrap.min.js"></script>
 </body>
