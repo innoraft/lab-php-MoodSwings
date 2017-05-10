@@ -12,9 +12,9 @@ require 'vendor/autoload.php';
 
 // Create Google Client
 $client = new Google_Client();
-$client->setClientId('657745825585-vr6qun12f9r7ftalcaph6kj3t6h37ac8.apps.googleusercontent.com');
-$client->setClientSecret('0VvbRvDPCyZN-f7n0_BM8Wv6');
-$client->setRedirectUri('http://localhost/Project%20level%203/devD2/gmail.php');
+$client->setClientId('CLIENT_ID');
+$client->setClientSecret('CLIENT_SECRET');
+$client->setRedirectUri('REDIRECT_URI');
 $client->addScope('https://mail.google.com/');
 
 // Create Gmail Service
@@ -100,7 +100,7 @@ try
                          // displays the email id
                          echo "<strong>Email Id:</strong> $stringEmail<br>";
 
-                         $sql=mysql_query("insert into Messages( MessageId, Activity, Content, Date, EmailId) VALUES ( '$id', '$activity', '$emotions', '$date', '$stringEmail')");
+                         $sql=mysql_query("insert into Messages( MessageId, Activity, Content, Date, EmailId) VALUES ( '$id', '$activity', '$emotions', '$timestamp', '$stringEmail')");
                          if ($sql) {
                               echo "<strong>New record created successfully</strong><br><br>";
                          } else {

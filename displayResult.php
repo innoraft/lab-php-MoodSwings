@@ -6,11 +6,13 @@ if(isset($_POST['btn-save']))
 {
      //Sets the date specified in fromDate in the variable $fromDate.
     $fromDate=$_POST['fromDate'];
+    $fromTimestamp = strtotime($fromDate);
     //Sets the date specified in toDate in the variable $toDate.
     $toDate=$_POST['toDate'];
+    $toTimestamp = strtotime($toDate);
 
     // Query to extract data from a given date range.
-    $sql = mysql_query("SELECT  *  FROM Messages WHERE   Date >= '$fromDate' AND Date   <= '$toDate'");
+    $sql = mysql_query("SELECT  *  FROM Messages WHERE   Date >= '$fromTimestamp' AND Date   <= '$toTimestamp'");
     $row=mysql_fetch_assoc($sql);
 
     // Displaying the data extracted from running the query in a tabular format.
@@ -24,7 +26,7 @@ if(isset($_POST['btn-save']))
      // This loop iterates through all the rows and prints till the last value from the selected date range.
     while($row=mysql_fetch_assoc($sql))
           {
-               
+
 
                // print "<pre>";
                //  var_dump($row);
