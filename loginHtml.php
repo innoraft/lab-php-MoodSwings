@@ -1,51 +1,64 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>News_today</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
-    <script type="text/javascript" src="script.js"></script>
+	<meta charset="utf-8">
+	<title>Moodswing | Login</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
+
 <body>
+	<div class="container">
 
-<div class="signin-form">
+          <form action="login.php" class="form-signin" method="post" id="register-form">
 
-    <div class="container">
-
-
-        <form action="login.php" class="form-signin" method="post" id="register-form">
-
-            <h2 class="form-signin-heading">Login</h2><hr />
-
-            <div id="error">
-            </div>
-
-            <div class="form-group">
-                <input type="email" class="form-control" placeholder="Email address" name="user_mail" id="user_email" />
-                <span id="check-e"></span>
-            </div>
-
-            <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" name="user_password" id="password" />
-            </div>
-
-            <hr />
-
-            <div class="form-group">
-                <button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">
-                  Login
-                </button>
-            </div>
-
-        </form>
-
-    </div>
-
-</div>
-
-<script src="js/bootstrap.min.js"></script>
+		<div class="top">
+			<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
+		</div>
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+			<label for="username">Username</label>
+			<br/>
+			<input type="text" id="user_email" name="user_mail">
+			<br/>
+			<label for="password">Password</label>
+			<br/>
+			<input type="password" id="user_password" name="user_password">
+			<br/>
+			<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Sign In</button>
+			<br/>
+			<a href="#"><p class="small">Forgot your password?</p></a>
+		</div>
+	</div>
 </body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
 </html>
