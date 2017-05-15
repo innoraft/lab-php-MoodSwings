@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -20,25 +21,25 @@
 
           <form action="login.php" class="form-signin" method="post" id="register-form">
 
-		<div class="top">
-			<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
-		</div>
-		<div class="login-box animated fadeInUp">
-			<div class="box-header">
-				<h2>Log In</h2>
+			<div class="top">
+				<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
 			</div>
-			<label for="username">Username</label>
-			<br/>
-			<input type="text" id="user_email" name="user_mail">
-			<br/>
-			<label for="password">Password</label>
-			<br/>
-			<input type="password" id="user_password" name="user_password">
-			<br/>
-			<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Sign In</button>
-			<br/>
-			<a href="#"><p class="small">Forgot your password?</p></a>
-		</div>
+			<div class="login-box animated fadeInUp">
+				<div class="box-header">
+					<h2>Log In</h2>
+				</div>
+				<label for="username">Username</label>
+				<br/>
+				<input type="text" id="user_email" name="user_mail">
+				<br/>
+				<label for="password">Password</label>
+				<br/>
+				<input type="password" id="user_password" name="user_password">
+				<br/>
+				<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Sign In</button>
+				<br/>
+				<a href="#"><p class="small">Forgot your password?</p></a>
+			</div>
 	</div>
 </body>
 

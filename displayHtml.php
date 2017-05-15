@@ -66,11 +66,13 @@ include 'dbconfig.php';
      // This loop iterates through all the rows and prints till the last value from the selected date range.
     while($row=mysql_fetch_assoc($sql))
           {
+               $dt = date('m/d/Y', $row['Date']);
+
                // print "<pre>";
                //  var_dump($row);
                //  print "</pre>";
                 echo "<tr>";
-                echo "<td>".$row['Date']."</td>";
+                echo "<td>".$dt."</td>";
                 echo "<td>".$row['EmailId']."</td>";
                 echo "<td>".$row['Activity']."</td>";
                 echo "<td>".$row['Content']."</td>";
