@@ -41,7 +41,7 @@ if(isset($_POST['btn-login']))
                                              {
                                                   // Storing a value in a $_SESSION[''] variable means it can be accessed from other files also.
                                                   $_SESSION['EmailId']= $get_mail;
-                                                  header('location:dashboard.php?msg=successful');
+                                                  header('location:dashboardAdmin.php?msg=successful');
                                              }
                                              else{
                                                   header('location:displayHtml.php?msg=successful');
