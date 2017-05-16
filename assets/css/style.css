@@ -1,6 +1,7 @@
 body {
-	background: url("../images/photo_bg.jpg") no-repeat center center fixed;
+	background: url("assets/photo_bg.jpg") no-repeat center center fixed;
 	background-size: cover;
+	background: #2C2149;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
@@ -78,7 +79,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: #665851;
+	background-color: #3D95A1;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -118,7 +119,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: #665851;
+	background-color: #208BA2;
 	cursor:pointer;
 	outline: none;
 }
@@ -147,4 +148,9 @@ p.small {
 .login-box {
   -webkit-animation-duration: 1s;
   -webkit-animation-delay: 1s;
+}
+
+
+.form-control {
+	width: 20%;
 }

@@ -3,20 +3,27 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Display</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-    <link href="style.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
+     <?php
+     include 'dbconfig.php';
+
+         // Query to extract data from a given date range.
+         $sql = mysql_query("SELECT  *  FROM Messages");
+         $row=mysql_fetch_assoc($sql);
+         ?>
 
 <div class="display">
 
     <div class="container">
 
 
-        <form action="displayResult.php" class="form-signin" method="post" id="register-form">
+        <form action="filterDate.php" class="form-signin" method="post" id="register-form">
 
             <h2 class="form-signin-heading">Display data</h2><hr />
 
@@ -42,47 +49,109 @@
 
         </form>
 
-    </div>
+        <form action="filterEmail.php" class="form-signin" method="post" id="register-form">
 
-</div>
+            <h2 class="form-signin-heading">Display data</h2><hr />
 
-<?php
-include 'dbconfig.php';
+            <div id="error">
+            </div>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
+                <span id="from"></span>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-default" name="btn-email" id="btn-email-submit">
+                  Submit
+                </button>
+            </div>
+
+       </form>
+
+            <form action="filterActivity.php" class="form-signin" method="post" id="register-form">
+
+               <h2 class="form-signin-heading">Display data</h2><hr />
+
+               <div id="error">
+               </div>
+
+               <div class="form-group">
+                   <input type="text" class="form-control" placeholder="Activity" name="Activity" id="Activity" />
+                   <span id="from"></span>
+               </div>
+
+               <div class="form-group">
+                   <button type="submit" class="btn btn-default" name="btn-activity" id="btn-activity-submit">
+                     Submit
+                   </button>
+               </div>
+
+        </form>
+
+        <form action="filterContent.php" class="form-signin" method="post" id="register-form">
+
+           <h2 class="form-signin-heading">Display data</h2><hr />
+
+           <div id="error">
+           </div>
+
+           <div class="form-group">
+               <input type="text" class="form-control" placeholder="Content" name="Content" id="Content" />
+               <span id="from"></span>
+           </div>
+
+           <div class="form-group">
+               <button type="submit" class="btn btn-default" name="btn-content" id="btn-content-submit">
+                 Submit
+               </button>
+           </div>
+
+    </form>
+
+        <div class="panel panel-default">
+
+             <table class="table">
+                  <div class="col-sm-6">
+
+                       <section class="panel">
+                            <header class="panel-heading">
+                                 Messages
+                                 </header>
+                                 <table class="table">
+
+                                     <thead>
+                                        <tr>
+                                              <!-- Displaying the data extracted from running the query in a tabular format. -->
+                                             <th>Date</th>
+                                             <th>EmailId</th>
+                                             <th>Activity</th>
+                                             <th>Content</th>
+                                        </tr>
+                                   </thead>
+                                   <tbody>
+                                        <tr>
+                                             <?php
+                                                  // This loop iterates through all the rows and prints till the last value from the selected date range.
+                                                 while($row=mysql_fetch_assoc($sql))
+                                                       {
+                                                            $dt = date('m/d/Y', $row['Date']);
+                                             ?>
+                                                            <td><?php echo $dt ?></td>
+                                                            <td><?php echo $row['EmailId'] ?></td>
+                                                            <td><?php echo $row['Activity'] ?></td>
+                                                            <td><?php echo $row['Content'] ?></td>
+                                                       </tr>
+                                                       <?php } ?>
+
+                                                  </tbody>
+                                             </table>
+                                        </section>
 
 
-    // Query to extract data from a given date range.
-    $sql = mysql_query("SELECT  *  FROM Messages");
-    $row=mysql_fetch_assoc($sql);
+                                   </div>
 
-    // Displaying the data extracted from running the query in a tabular format.
-    echo "<table>
-     <tr>
-       <td >  Date</td>
-       <td >  EmailId</td>
-       <td >  Activity </td>
-       <td >  Content</td>
-     </tr>";
-
-     // This loop iterates through all the rows and prints till the last value from the selected date range.
-    while($row=mysql_fetch_assoc($sql))
-          {
-               $dt = date('m/d/Y', $row['Date']);
-
-               // print "<pre>";
-               //  var_dump($row);
-               //  print "</pre>";
-                echo "<tr>";
-                echo "<td>".$dt."</td>";
-                echo "<td>".$row['EmailId']."</td>";
-                echo "<td>".$row['Activity']."</td>";
-                echo "<td>".$row['Content']."</td>";
-                echo "</tr>";
-
-           }
-
-
-
-?>
+                              </div>
 
 
 <script src="js/bootstrap.min.js"></script>

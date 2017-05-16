@@ -1,0 +1,375 @@
+@import url(http://fonts.googleapis.com/css?family=Nunito:300);
+
+body {
+     background-image:  url("../../assets/2.jpg");
+     background-size: cover;
+     font-family: "Nunito", sans-serif; font-size: 24px; }
+a    { text-decoration: none; }
+p    { text-align: center; }
+sup  { font-size: 36px; font-weight: 100; line-height: 55px; }
+
+.text {
+     padding-top:10px;
+     font-size: 60px;
+     color: white;
+}
+
+.button-charts
+{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #0C5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  margin: 5em auto;
+  position: absolute;
+  top:0; right:0; bottom:0; left:0;
+  padding: 20px 0;
+  width: 220px;
+  height:70px;
+  background: #0D6;
+  border: 1px solid #0D6;
+  color: #FFF;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.button-charts:hover, .button:active
+{
+  text-decoration: none;
+  color: #0C5;
+  border-color: #0C5;
+  background: #FFF;
+}
+
+.button-charts span
+{
+  display: inline-block;
+  position: relative;
+  padding-right: 0;
+  transition: padding-right 0.5s;
+}
+
+.button-charts span:after
+{
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: -18px;
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -10px;
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid #FFF;
+  border-top: none;
+  border-right: none;
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform: rotate(-45deg);
+}
+
+.button-charts:hover span, .button:active span
+{
+  padding-right: 30px;
+}
+
+.button-charts:hover span:after, .button:active span:after
+     {
+            transition: opacity 0.5s, top 0.5s, right 0.5s;
+            opacity: 1;
+            border-color: #0C5;
+            right: 0;
+            top: 50%;
+     }
+
+
+/*2nd button*/
+.button-mtable
+{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-align: center;
+  color: #D99633;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  font-size: 24px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  margin: 5em auto;
+  position: absolute;
+  top:70px; right:0; bottom:0; left:200px;
+  padding: 20px 0;
+  width: 220px;
+  height:110px;
+  background: #D99633;
+  border: 1px solid #D99633;
+  color: #FFF;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.button-mtable:hover, .button:active
+{
+  text-decoration: none;
+  color: #D99633;
+  border-color: #D99633;
+  background: #FFF;
+}
+
+.button-mtable span
+{
+  display: inline-block;
+  position: relative;
+  padding-right: 0;
+  transition: padding-right 0.5s;
+}
+
+.button-mtable span:after
+{
+  content: ' ';
+  position: absolute;
+  top: 0;
+  right: -18px;
+  opacity: 0;
+  width: 10px;
+  height: 10px;
+  margin-top: -10px;
+  background: rgba(0, 0, 0, 0);
+  border: 3px solid #FFF;
+  border-top: none;
+  border-right: none;
+  transition: opacity 0.5s, top 0.5s, right 0.5s;
+  transform: rotate(-45deg);
+}
+
+.button-mtable:hover span, .button:active span
+{
+  padding-right: 30px;
+}
+
+.button-mtable:hover span:after, .button:active span:after
+     {
+            transition: opacity 0.5s, top 0.5s, right 0.5s;
+            opacity: 1;
+            border-color: #D99633;
+            right: 0;
+            top: 50%;
+     }
+
+     /*3rd button*/
+     .button-utable
+     {
+       text-transform: uppercase;
+       letter-spacing: 2px;
+       text-align: center;
+       color: #A959DA;
+       box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+       font-size: 24px;
+       font-family: "Nunito", sans-serif;
+       font-weight: 300;
+       margin: 5em auto;
+       position: absolute;
+       top:180px; right:140px; bottom:0; left:0px;
+       padding: 20px 0;
+       width: 220px;
+       height:70px;
+       background: #A959DA;
+       border: 1px solid #A959DA;
+       color: #FFF;
+       overflow: hidden;
+       transition: all 0.5s;
+     }
+
+     .button-utable:hover, .button:active
+     {
+       text-decoration: none;
+       color: #A959DA;
+       border-color: #A959DA;
+       background: #FFF;
+     }
+
+     .button-utable span
+     {
+       display: inline-block;
+       position: relative;
+       padding-right: 0;
+       transition: padding-right 0.5s;
+     }
+
+     .button-utable span:after
+     {
+       content: ' ';
+       position: absolute;
+       top: 0;
+       right: -18px;
+       opacity: 0;
+       width: 10px;
+       height: 10px;
+       margin-top: -10px;
+       background: rgba(0, 0, 0, 0);
+       border: 3px solid #FFF;
+       border-top: none;
+       border-right: none;
+       transition: opacity 0.5s, top 0.5s, right 0.5s;
+       transform: rotate(-45deg);
+     }
+
+     .button-utable:hover span, .button:active span
+     {
+       padding-right: 30px;
+     }
+
+     .button-utable:hover span:after, .button:active span:after
+          {
+                 transition: opacity 0.5s, top 0.5s, right 0.5s;
+                 opacity: 1;
+                 border-color: #A959DA;
+                 right: 0;
+                 top: 50%;
+          }
+
+          /*3rd button*/
+          .button-urtable
+          {
+           text-transform: uppercase;
+           letter-spacing: 2px;
+           text-align: center;
+           color: #4EE3E3;
+           box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+           font-size: 24px;
+           font-family: "Nunito", sans-serif;
+           font-weight: 300;
+           margin: 5em auto;
+           position: absolute;
+           top:250px; right:0; bottom:0; left:160px;
+           padding: 20px 0;
+           width: 220px;
+           height:110px;
+           background: #4EE3E3;
+           border: 1px solid #4EE3E3;
+           color: #FFF;
+           overflow: hidden;
+           transition: all 0.5s;
+          }
+
+          .button-urtable:hover, .button:active
+          {
+           text-decoration: none;
+           color: #4EE3E3;
+           border-color: #4EE3E3;
+           background: #FFF;
+          }
+
+          .button-urtable span
+          {
+           display: inline-block;
+           position: relative;
+           padding-right: 0;
+           transition: padding-right 0.5s;
+          }
+
+          .button-urtable span:after
+          {
+           content: ' ';
+           position: absolute;
+           top: 0;
+           right: -18px;
+           opacity: 0;
+           width: 10px;
+           height: 10px;
+           margin-top: -10px;
+           background: rgba(0, 0, 0, 0);
+           border: 3px solid #FFF;
+           border-top: none;
+           border-right: none;
+           transition: opacity 0.5s, top 0.5s, right 0.5s;
+           transform: rotate(-45deg);
+          }
+
+          .button-urtable:hover span, .button:active span
+          {
+           padding-right: 30px;
+          }
+
+          .button-urtable:hover span:after, .button:active span:after
+               {
+                      transition: opacity 0.5s, top 0.5s, right 0.5s;
+                      opacity: 1;
+                      border-color: #4EE3E3;
+                      right: 0;
+                      top: 50%;
+               }
+
+               /*3rd button*/
+               .button-inbox
+               {
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                text-align: center;
+                color: #E87942;
+               box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+                font-size: 24px;
+                font-family: "Nunito", sans-serif;
+                font-weight: 300;
+                margin: 5em auto;
+                position: absolute;
+                top:360px; right:140px; bottom:0; left:0;
+                padding: 20px 0;
+                width: 220px;
+                height:70px;
+                background: #E87942;
+                border: 1px solid #E87942;
+                color: #FFF;
+                overflow: hidden;
+                transition: all 0.5s;
+               }
+
+               .button-inbox:hover, .button:active
+               {
+                text-decoration: none;
+                color: #E87942;
+                border-color: #E87942;
+                background: #FFF;
+               }
+
+               .button-inbox span
+               {
+                display: inline-block;
+                position: relative;
+                padding-right: 0;
+                transition: padding-right 0.5s;
+               }
+
+               .button-inbox span:after
+               {
+                content: ' ';
+                position: absolute;
+                top: 0;
+                right: -18px;
+                opacity: 0;
+                width: 10px;
+                height: 10px;
+                margin-top: -10px;
+                background: rgba(0, 0, 0, 0);
+                border: 3px solid #FFF;
+                border-top: none;
+                border-right: none;
+                transition: opacity 0.5s, top 0.5s, right 0.5s;
+                transform: rotate(-45deg);
+               }
+
+               .button-inbox:hover span, .button:active span
+               {
+                padding-right: 30px;
+               }
+
+               .button-inbox:hover span:after, .button:active span:after
+                    {
+                           transition: opacity 0.5s, top 0.5s, right 0.5s;
+                           opacity: 1;
+                           border-color: #E87942;
+                           right: 0;
+                           top: 50%;
+                    }
