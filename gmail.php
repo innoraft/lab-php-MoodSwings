@@ -13,7 +13,6 @@
 <?php
 
 // This file is for extracting everything in a mail.
-
 include 'dbconfig.php';
 
 // Start Session
@@ -127,7 +126,7 @@ try
                                                                                 // echo $value->value;
                                                                                 $dateString = substr($value->value, strpos($value->value, ";") +1);
                                                                                 $gotDate = new DateTime($dateString);
-                                                                                $date =$gotDate->format('Y-m-d H:i:s');
+                                                                                $date =$gotDate->format('Y-m-d');
                                                                                 $timestamp = strtotime($date);
                                                                                 // displays the date and time
                                                                                 // echo "<strong>Date:</strong> $date<br>";

@@ -48,13 +48,15 @@ var chart = AmCharts.makeChart("chartdiv",
     "gridPosition": "start",
     "gridAlpha": 0,
     "tickPosition": "start",
-    "tickLength": 20
+    "tickLength": 20,
+    "dateFormats":"YYYY/MM/DD JJ:NN"
   },
   "export": {
     "enabled": true
   }
 
 });
+// chart.dataDateFormat = "YYYY/MM/DD JJ:NN";
 </script>
 
 <!-- HTML -->
