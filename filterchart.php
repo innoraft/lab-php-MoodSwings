@@ -1,6 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+     <link href="assets/css/styleGoogleCharts.css" rel="stylesheet" type="text/css" media="screen">
+
 
      <?php
      include 'dbconfig.php';
@@ -58,7 +60,7 @@
         var options = {
           title: "People vs Activity",
           width: 1200,
-          height: 600,
+          height: 500,
           bar: {groupWidth: "65%"},
           legend: { position: "none" },
         };

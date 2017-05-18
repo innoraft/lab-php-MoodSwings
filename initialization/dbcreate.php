@@ -30,11 +30,11 @@ $create_table_messages = mysql_query("CREATE TABLE IF NOT EXISTS `Messages` (
 )");
 if($create_table_messages == TRUE)
 {
-echo " User table is created";
+echo " Messages table is created";
 }
 else
 {
-echo "ERROR in user table";
+echo "ERROR in Messages table";
 }
 
 //.................. USERROLE TABLE,........................
@@ -46,11 +46,20 @@ $create_table_userrole = mysql_query("CREATE TABLE IF NOT EXISTS `UserRole` (
 )");
 if($create_table_userrole == TRUE)
 {
-echo " News table is created";
+echo " UserRole table is created";
 }
 else
 {
-echo "ERROR in News table";
+echo "ERROR in UserRole table";
+}
+$insert_into_userrole= INSERT INTO `UserRole` VALUES (1,'Admin','All access'),(2,'Non-Admin','No administrator rights');
+if($insert_into_userrole == TRUE)
+{
+echo " Rules inserted for Admin and Non-Admin";
+}
+else
+{
+echo "Rules insertion failed";
 }
 
 //.................. USERS TABLE,........................
@@ -63,11 +72,19 @@ $create_table_users = mysql_query("CREATE TABLE IF NOT EXISTS `Users` (
 )");
 if($create_table_users == TRUE)
 {
-echo " Likes table is created";
+echo " Users table is created";
 }
 else
 {
-echo "ERROR in likes table";
+echo "ERROR in Users table";
 }
-
+$insert_into_users= INSERT INTO `Users` VALUES ('moodswing@innoraft.com','c4226aef5e0a105588b6b2fe594d33e8',1);
+if($insert_into_users == TRUE)
+{
+echo " Admin inserted into table";
+}
+else
+{
+echo "ERROR inserting Admin into table";
+}
 ?>

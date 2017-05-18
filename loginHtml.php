@@ -8,6 +8,8 @@
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
 
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
+
 	<link rel="stylesheet" href="assets/css/animate.css">
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
@@ -38,7 +40,6 @@
 				<br/>
 				<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Sign In</button>
 				<br/>
-				<a href="#"><p class="small">Forgot your password?</p></a>
 			</div>
 	</div>
 </body>

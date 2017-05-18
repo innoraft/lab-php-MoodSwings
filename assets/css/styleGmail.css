@@ -1,0 +1,25 @@
+body {
+	background: #2C2149;
+	font-size: 16px;
+	font-weight: 300;
+	margin: 0;
+	color: #666;
+}
+
+.mytable {
+	margin-top: 14rem;
+	margin-left: 6rem;
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+     width: 90%;
+}
+
+.googleLogin {
+     margin: 0 auto;
+     display: flex;
+     height: 100vh;
+     align-items: center;
+     font-size: 80px;
+     font-family: 'Oleo Script', cursive;
+     color: white;
+     /*text-shadow: 4px 4px 4px #aaa;*/
+}

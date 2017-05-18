@@ -9,9 +9,9 @@ This project is about tracking emotions of people.You need to mail in the follow
 3. The portal/system will capture the email and get the status and email, and store it
 4. The email can have data like
 	1. Action
-		@feeling:frustrated, which will store the data like [feeling:frustrated]
-		@doing:timepass, which will store the data like [doing:timepass]
-		And more!
+		..* @feeling:frustrated, which will store the data like [feeling:frustrated]
+		..* @doing:timepass, which will store the data like [doing:timepass]
+		..* And more!
 	2. Content - simple text
 5. All the data must be stored in the proper manner so we can create analytics like “on wednesdays people mostly feel happy, tired, frustrated”
 6. Users can login using the same email id and see their statuses

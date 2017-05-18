@@ -44,7 +44,7 @@ if(isset($_POST['btn-login']))
                                                   header('location:dashboardAdmin.php?msg=successful');
                                              }
                                              else{
-                                                  header('location:displayHtml.php?msg=successful');
+                                                  header('location:dashboardNonAdmin.php?msg=successful');
 
                                              }
                                    }
