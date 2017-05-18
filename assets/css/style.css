@@ -9,11 +9,12 @@ body {
 	color: #666;
 }
 
+
 /* Typography */
 h1#title {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 300;
-	font-size: 3.2em;
+	font-size: 4.2em;
 	color: white;
 	text-shadow: 0 0 10px rgba(0,0,0,0.8);
 	margin: 0 auto;
@@ -22,6 +23,7 @@ h1#title {
 	text-align: center;
 	position: relative;
 	top: 0px;
+	font-family: 'Oleo Script', cursive;
 }
 
 h1#title span span {

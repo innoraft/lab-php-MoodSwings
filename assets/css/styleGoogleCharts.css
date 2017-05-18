@@ -1,0 +1,48 @@
+body {
+	background: url("assets/photo_bg.jpg") no-repeat center center fixed;
+	background-size: cover;
+	background: #2C2149;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	color: #666;
+}
+
+input {
+	/*margin-bottom: 20px;*/
+	margin: 0 auto;
+	top: 0;
+	left: 0;
+	padding: 8px;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	font-size: .9em;
+	color: #888;
+}
+
+button {
+	margin-top: 0px;
+	border: 0;
+	border-radius: 2px;
+	color: white;
+	padding: 10px;
+	text-transform: uppercase;
+	font-weight: 400;
+	font-size: 0.7em;
+	letter-spacing: 1px;
+	background-color: #208BA2;
+	cursor:pointer;
+	outline: none;
+}
+
+#columnchart_values {
+  background: #ffffff;
+  border-radius: 2px;
+  display: inline-block;
+  height: 500px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  margin-top: 5rem;
+  margin-left: 5rem;
+  width: 1200px;
+}

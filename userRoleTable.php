@@ -17,7 +17,7 @@
      include 'dbconfig.php';
 
          // Query to extract data from a given date range.
-         $sql = mysql_query("SELECT  *  FROM Messages");
+         $sql = mysql_query("SELECT  *  FROM UserRole");
          $row=mysql_fetch_assoc($sql);
          ?>
 
@@ -133,17 +133,17 @@
 
                        <section class="panel">
                             <header class="panel-heading">
-                                 Messages
+
+                                 <strong>Users Table</strong>
                                  </header>
                                  <table class="table">
 
                                      <thead>
                                         <tr>
                                               <!-- Displaying the data extracted from running the query in a tabular format. -->
-                                             <th>Date</th>
-                                             <th>EmailId</th>
-                                             <th>Activity</th>
-                                             <th>Content</th>
+                                             <th>User Role Id</th>
+                                             <th>User RoleName</th>
+                                             <th>User Description</th>
                                         </tr>
                                    </thead>
                                    <tbody>
@@ -152,12 +152,10 @@
                                                   // This loop iterates through all the rows and prints till the last value from the selected date range.
                                                  while($row=mysql_fetch_assoc($sql))
                                                        {
-                                                            $dt = date('m/d/Y', $row['Date']);
                                              ?>
-                                                            <td><?php echo $dt ?></td>
-                                                            <td><?php echo $row['EmailId'] ?></td>
-                                                            <td><?php echo $row['Activity'] ?></td>
-                                                            <td><?php echo $row['Content'] ?></td>
+                                                            <td><?php echo $row['UserRoleId'] ?></td>
+                                                            <td><?php echo $row['UserRoleName'] ?></td>
+                                                            <td><?php echo $row['UserDescription'] ?></td>
                                                        </tr>
                                                        <?php } ?>
 

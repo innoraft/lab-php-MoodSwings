@@ -27,6 +27,7 @@ include 'dbconfig.php';
   //}
   ?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <link href="assets/css/styleGoogleCharts.css" rel="stylesheet" type="text/css" media="screen">
  <script type="text/javascript">
    google.charts.load("current", {packages:['corechart']});
    google.charts.setOnLoadCallback(drawChart);
@@ -53,7 +54,7 @@ include 'dbconfig.php';
      var options = {
        title: "People vs Activity",
        width: 1200,
-       height: 600,
+       height: 500,
        bar: {groupWidth: "65%"},
        legend: { position: "none" },
      };
@@ -63,37 +64,41 @@ include 'dbconfig.php';
  </script>
 <html>
 <body>
+     
      <form action="filterchart.php" method="post">
           <input type="date" name="this_date" id="this_date">
-          <input type="submit" id="submit" name="submit"/>
+          <button type="submit" id="submit" name="submit"/>SUBMIT</button>
      </form>
 
-     <div id="columnchart_values"></div>
+     <div class="card">
+          <div id="columnchart_values"></div>
+     </div>
 
-     <!-- <script>
+</body>
+
+<!-- <script>
 $(document).ready(function(){
-     $('#submit').click(function(){
-          var datee = $('#this_date').val();
-          if(datee == '')
-          {
-               $('#error_message').html("Email required");
-          }
-          else
-          {
-               $('#error_message').html('');
-               $.ajax({
-                    url:"googlecharts.php?datee="+datee,
-                    type:"GET",
-                    //data:{email:email},
-                    success:function(data){
-                         alert(data);
-                         $('#columnchart_values').css('visibility', 'visible').html(data);
-                    }
-               });
-          }
-     });
+$('#submit').click(function(){
+     var datee = $('#this_date').val();
+     if(datee == '')
+     {
+          $('#error_message').html("Email required");
+     }
+     else
+     {
+          $('#error_message').html('');
+          $.ajax({
+               url:"googlecharts.php?datee="+datee,
+               type:"GET",
+               //data:{email:email},
+               success:function(data){
+                    alert(data);
+                    $('#columnchart_values').css('visibility', 'visible').html(data);
+               }
+          });
+     }
+});
 });
 </script> -->
 
-</body>
 </html>

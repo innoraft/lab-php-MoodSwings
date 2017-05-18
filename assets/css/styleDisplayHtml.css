@@ -1,0 +1,14 @@
+body {
+	background: #2C2149;
+	font-size: 16px;
+	font-family: 'Lato', sans-serif;
+	font-weight: 300;
+	margin: 0;
+	color: #666;
+}
+
+.mytable {
+	margin-top: 10rem;
+	margin-left: 2rem;
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}

@@ -6,7 +6,8 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="js/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="assets/css/styleGmail.css" rel="stylesheet" type="text/css" media="screen">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
     <script type="text/javascript" src="script.js"></script>
 </head>
 <body>
@@ -52,8 +53,9 @@ if (isset($_SESSION['access_token'])) {
      $client->setAccessToken($_SESSION['access_token']);
 } else {
      $loginUrl = $client->createAuthUrl();
-     echo 'Click <a href=" '.$loginUrl. ' ">here</a> to login.';
+     echo '<div class="googleLogin"><a class="googleLogin" href=" '.$loginUrl. ' ">Login through Google</a></div>';
 }
+
 
 
 // Check if we have an access token ready for API call
@@ -63,7 +65,7 @@ try
      {
 
           ?>
-          <div class="panel panel-default">
+          <div class="panel panel-default mytable">
 
                <table class="table">
                     <div class="col-sm-6">

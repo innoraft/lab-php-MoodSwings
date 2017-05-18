@@ -18,8 +18,9 @@ sup  {
 }
 
 .text {
+     font-family: 'Oleo Script', cursive;
      padding-top:10px;
-     font-size: 60px;
+     font-size: 80px;
      color: white;
 }
 /*--------------------cards--------------------*/
@@ -29,7 +30,7 @@ sup  {
   border-radius: 2px;
   display: inline-block;
   height: 200px;
-  margin-top: 6rem;
+  margin-top: 20rem;
   margin-left: 6rem;
   position: relative;
   width: 300px;
@@ -43,7 +44,7 @@ sup  {
   border-radius: 2px;
   display: inline-block;
   height: 200px;
-  margin-top: 14rem;
+  margin-top: 30rem;
   margin-left: 6rem;
   position: relative;
   width: 300px;
@@ -98,7 +99,7 @@ sup  {
      font-weight: 300;
      margin: 5em auto;
      position: absolute;
-     top:0; right:0; bottom:0; left:0;
+     top:150px; right:0; bottom:0; left:0;
      padding: 20px 0;
      width: 220px;
      height:70px;
@@ -169,7 +170,7 @@ sup  {
      font-weight: 300;
      margin: 5em auto;
      position: absolute;
-     top:70px; right:0; bottom:0; left:200px;
+     top:220px; right:0; bottom:0; left:200px;
      padding: 20px 0;
      width: 220px;
      height:110px;
