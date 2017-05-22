@@ -132,8 +132,48 @@
         <!-- </div> -->
 
         <!-- <div class="row"> -->
-        
+            <div class="panel panel-default mytable">
+                <table class="table">
+                    <div class="col-sm-6">
+                        <section class="panel">
+                            <header class="panel-heading">
+                                <strong>Messages</strong>
+                            </header>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                              <!-- Displaying the data extracted from running the query in a tabular format. -->
+                                             <th>Date</th>
+                                             <th>Message Id</th>
+                                             <th>Activity</th>
+                                             <th>Content</th>
+                                             <th>Email Id</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <?php
+                                            // This loop iterates through all the rows and prints till the last value from the selected date range.
+                                            while($row=mysql_fetch_assoc($sql))
+                                                       {
+                                                            $dt = date('m/d/Y', $row['Date']);
+                                             ?>
+                                                    <td><?php echo $dt ?></td>
+                                                    <td><?php echo $row['MessageId'] ?></td>
+                                                    <td><?php echo $row['Activity'] ?></td>
+                                                    <td><?php echo $row['Content'] ?></td>
+                                                    <td><?php echo $row['EmailId'] ?></td>
+                                        </tr>
+                                            <?php } ?>
+
+                                    </tbody>
+                                </table>
+                        </section>
+                    </div>
+                </div>
+            <!-- </div> -->
         </div>
+
 
          
 
