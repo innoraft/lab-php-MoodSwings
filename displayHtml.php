@@ -181,7 +181,6 @@
 
 <script>
 function openNav() {
-alert('sonam');
     document.getElementById("mySidenav").style.width = "250px";
     document.getElementById("main").style.marginLeft = "250px";
 }
