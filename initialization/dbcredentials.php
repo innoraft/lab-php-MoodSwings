@@ -1,6 +1,6 @@
 <?php
-$serverName = "localhost";
-$userName = "root";
-$password = "ascii";
-$databaseName = "moodswing";
+$serverName = "serverName";
+$userName = "userName";
+$password = "password";
+$databaseName = "databaseName";
 ?>
