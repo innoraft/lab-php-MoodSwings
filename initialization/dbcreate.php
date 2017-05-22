@@ -1,7 +1,7 @@
 
 <?php
 /*..............DATABASE CONNECTION AND DATABASE CREDENTIALS ...*/
-include ("initialization/dbcredentials.php");
+include ("dbcredentials.php");
 $db = mysql_connect($serverName, $userName, $password);
 if (!$db) {
 die("Connection failed: " . mysql_error());
@@ -10,8 +10,8 @@ die("Connection failed: " . mysql_error());
 
 //.......CREATE DATABASE moodswing.........
 
-$create_database = mysql_query("CREATE DATABASE ".$database_name." ;");
-mysql_select_db($database_name,$db);
+$create_database=mysql_query("CREATE DATABASE ".$databaseName." ;");
+mysql_select_db($databaseName,$db);
 if($create_database == TRUE)
 {
 echo "DATABASE CREATED";
@@ -38,7 +38,7 @@ echo "ERROR in Messages table";
 }
 
 //.................. USERROLE TABLE,........................
-$create_table_userrole = mysql_query("CREATE TABLE IF NOT EXISTS `UserRole` (
+$create_table_userrole=mysql_query("CREATE TABLE IF NOT EXISTS `UserRole` (
   `UserRoleId` int(11) NOT NULL,
   `UserRoleName` varchar(50) DEFAULT NULL,
   `UserDescription` varchar(50) DEFAULT NULL,
@@ -52,7 +52,7 @@ else
 {
 echo "ERROR in UserRole table";
 }
-$insert_into_userrole= INSERT INTO `UserRole` VALUES (1,'Admin','All access'),(2,'Non-Admin','No administrator rights');
+$insert_into_userrole=mysql_query("INSERT INTO `UserRole` VALUES (1,'Admin','All access'),(2,'Non-Admin','No administrator rights')");
 if($insert_into_userrole == TRUE)
 {
 echo " Rules inserted for Admin and Non-Admin";
@@ -78,7 +78,7 @@ else
 {
 echo "ERROR in Users table";
 }
-$insert_into_users= INSERT INTO `Users` VALUES ('moodswing@innoraft.com','c4226aef5e0a105588b6b2fe594d33e8',1);
+$insert_into_users= mysql_query("INSERT INTO `Users` VALUES ('moodswing@innoraft.com','c4226aef5e0a105588b6b2fe594d33e8',1)");
 if($insert_into_users == TRUE)
 {
 echo " Admin inserted into table";
