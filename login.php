@@ -28,7 +28,7 @@ if(isset($_POST['btn-login']))
           $get_pass= $get_value['Password'];
 
           // Checking if the database is not empty i.e. if there is atleast one row then the following code will be executed.
-          if($sql_row>0)
+          if($sql_row > 0)
                {
                     // Comparing the EmailId recieved from $get_mail and $mail.
                     if(strcasecmp($get_mail,$mail)==0)
