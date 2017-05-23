@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
      <link href="assets/css/styleGoogleCharts.css" rel="stylesheet" type="text/css" media="screen">
-
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
      <?php
      include 'dbconfig.php';
