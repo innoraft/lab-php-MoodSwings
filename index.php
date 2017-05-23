@@ -10,7 +10,7 @@
 
 	<link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
 
-	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- <link rel="stylesheet" href="assets/css/animate.css"> -->
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
 

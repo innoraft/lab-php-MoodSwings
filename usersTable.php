@@ -36,10 +36,10 @@
 
     <div id="main">
         <!-- <div class="row"> -->
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse mynavheader">
             <!-- <div class="container-fluid"> -->
                 <div class="navbar-header">
-                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+                    <span style="font-size:25px;cursor:pointer;position: absolute;top: 8px;left: 14px;" onclick="openNav()">&#9776;</span>
                     <!-- <a class="navbar-brand" href="#">Moodswing</a> -->
                 </div>
                 <ul class="nav navbar-nav">
@@ -130,7 +130,7 @@
                     </li>
                 </ul>
             <!-- </div> -->
-        </nav>                 
+        </nav>
         <!-- </div> -->
 
         <!-- <div class="row"> -->
@@ -173,8 +173,8 @@
 
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "234px";
+    document.getElementById("main").style.marginLeft = "234px";
 }
 
 function closeNav() {
