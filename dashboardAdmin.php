@@ -6,6 +6,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
     <link href="assets/css/styleDashboardAdmin.css" rel="stylesheet" type="text/css" media="screen">
 </head>
 
