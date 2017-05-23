@@ -7,8 +7,9 @@
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
 
-	<link rel="stylesheet" href="assets/css/animate.css">
+	<!-- <link rel="stylesheet" href="assets/css/animate.css"> -->
 	<!-- Custom Stylesheet -->
 	<link rel="stylesheet" href="assets/css/style.css">
 
@@ -26,7 +27,7 @@
 			</div>
 			<div class="login-box animated fadeInUp">
 				<div class="box-header">
-					<h2>Log In</h2>
+					<h2>Sign Up</h2>
 				</div>
 				<label for="username">Username</label>
 				<br/>

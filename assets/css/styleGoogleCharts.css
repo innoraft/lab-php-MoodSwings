@@ -1,7 +1,6 @@
 body {
-	background: url("assets/photo_bg.jpg") no-repeat center center fixed;
+	background: url("../../assets/images/15ol.jpg") no-repeat center center fixed;
 	background-size: cover;
-	background: #2C2149;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
@@ -45,4 +44,90 @@ button {
   margin-top: 5rem;
   margin-left: 5rem;
   width: 1200px;
+}
+
+
+
+.mynavheader {
+	top:0;
+	background-color: white;
+	border-color: white;
+	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #C96FED;
+    background-color: transparent;
+}
+
+.mynavheader .navbar-nav>.active>a {
+	background-color: #C96FED;
+}
+
+.mytable {
+	margin-top: 10rem;
+	/*margin-left: 2rem;*/
+     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.navbar-header {
+	font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+
+.navbar-nav {
+	display: table-cell;
+	float: right;
+}
+
+.navbar-nav>li>a {
+    padding-right: 70px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: url("../../assets/images/16.png") no-repeat;
+    background-color: #fff;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #000;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav a:hover, .offcanvas a:focus{
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-left .5s;
+    padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
 }

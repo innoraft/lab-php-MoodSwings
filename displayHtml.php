@@ -34,10 +34,10 @@
 
     <div id="main">
         <!-- <div class="row"> -->
-            <nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse mynavheader">
             <!-- <div class="container-fluid"> -->
                 <div class="navbar-header">
-                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+                    <span style="font-size:25px;cursor:pointer;position: absolute;top: 8px;left: 14px;" onclick="openNav()">&#9776;</span>
                     <!-- <a class="navbar-brand" href="#">Moodswing</a> -->
                 </div>
                 <ul class="nav navbar-nav">
@@ -45,7 +45,7 @@
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Date
                         <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu mydropdownmenu">
                             <form action="filterDate.php" class="form-signin" method="post" id="register-form">
                                 <!-- <h2 class="form-signin-heading">Date</h2><hr /> -->
                                 <div id="error">
@@ -128,7 +128,7 @@
                     </li>
                 </ul>
             <!-- </div> -->
-        </nav>                 
+        </nav>
         <!-- </div> -->
 
         <!-- <div class="row"> -->
@@ -175,14 +175,14 @@
         </div>
 
 
-         
+
 
 <!-- <script src="js/bootstrap.min.js"></script> -->
 
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
-    document.getElementById("main").style.marginLeft = "250px";
+    document.getElementById("mySidenav").style.width = "234px";
+    document.getElementById("main").style.marginLeft = "234px";
 }
 
 function closeNav() {

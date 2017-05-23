@@ -1,14 +1,12 @@
 body {
-	background: url("assets/photo_bg.jpg") no-repeat center center fixed;
+	background: url("../../assets/images/8ol.jpg") no-repeat center center fixed;
 	background-size: cover;
-	background: #2C2149;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
 	margin: 0;
 	color: #666;
 }
-
 
 /* Typography */
 h1#title {
@@ -18,7 +16,7 @@ h1#title {
 	color: white;
 	text-shadow: 0 0 10px rgba(0,0,0,0.8);
 	margin: 0 auto;
-	padding-top: 180px;
+	padding-top: 120px;
 	max-width: 300px;
 	text-align: center;
 	position: relative;
@@ -81,7 +79,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: #3D95A1;
+	background-color: #EEC943;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -121,7 +119,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: #208BA2;
+	background-color: #ED7D2C;
 	cursor:pointer;
 	outline: none;
 }

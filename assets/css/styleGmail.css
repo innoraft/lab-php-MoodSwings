@@ -1,16 +1,47 @@
 body {
-	background: #2C2149;
+	background: url("../../assets/images/15ol.jpg") no-repeat center center fixed;
+	background-size: cover;
 	font-size: 16px;
 	font-weight: 300;
 	margin: 0;
 	color: #666;
 }
 
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #C96FED;
+    background-color: transparent;
+}
+
+.mynavheader {
+	top:0;
+	background-color: white;
+	border-color: white;
+	box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.mynavheader .navbar-nav>.active>a {
+	background-color: #C96FED;
+}
+
 .mytable {
 	margin-top: 14rem;
-	margin-left: 6rem;
+	/*margin-left: 6rem;*/
      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-     width: 90%;
+     /*width: 90%;*/
+}
+
+.navbar-header {
+	font-size: 25px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 5px;
+}
+
+.navbar-nav {
+	display: table-cell;
+	float: right;
+	/*padding-left: 55%;*/
 }
 
 .googleLogin {
@@ -32,6 +63,7 @@ body {
     z-index: 1;
     top: 0;
     left: 0;
+    background: url("../../assets/images/16.png") no-repeat;
     background-color: #fff;
     overflow-x: hidden;
     transition: 0.5s;
@@ -68,4 +100,3 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
-
