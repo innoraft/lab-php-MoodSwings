@@ -34,6 +34,9 @@ sup  {
   position: relative;
   width: 300px;
   opacity: 0;
+  transition: 0.8s;
+  -moz-transition: 0.8s;
+  -webkit-transition: 0.8s;
 }
 
 
@@ -48,6 +51,9 @@ sup  {
   position: relative;
   width: 300px;
   opacity: 0;
+  transition: 0.8s;
+  -moz-transition: 0.8s;
+  -webkit-transition: 0.8s;
 }
 
 .card-3 {
@@ -60,6 +66,9 @@ sup  {
   position: relative;
   width: 300px;
   opacity: 0;
+  transition: 0.8s;
+  -moz-transition: 0.8s;
+  -webkit-transition: 0.8s;
 }
 
 .card-4 {
@@ -72,6 +81,9 @@ sup  {
   position: relative;
   width: 300px;
   opacity: 0;
+  transition: 0.8s;
+  -moz-transition: 0.8s;
+  -webkit-transition: 0.8s;
 }
 
 .card-5 {
@@ -84,6 +96,9 @@ sup  {
   position: relative;
   width: 300px;
   opacity: 0;
+  transition: 0.8s;
+  -moz-transition: 0.8s;
+  -webkit-transition: 0.8s;
 }
 
 /*--------------------Button for Charts--------------------*/
@@ -113,7 +128,7 @@ sup  {
      opacity: 1;
 }
 
-.button-charts:hover .card  {
+.button-charts:hover{
      text-decoration: none;
      color: #0C5;
      border-color: #0C5;
