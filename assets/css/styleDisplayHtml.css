@@ -1,7 +1,6 @@
 body {
 	background: url("../../assets/images/15ol.jpg") no-repeat center center fixed;
 	background-size: cover;
-	/*background: #2C2149;*/
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
 	font-weight: 300;
@@ -27,7 +26,6 @@ body {
 
 .mytable {
 	margin-top: 10rem;
-	/*margin-left: 2rem;*/
      box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
@@ -42,7 +40,6 @@ body {
 .navbar-nav {
 	display: table-cell;
 	float: right;
-	/*padding-left: 55%;*/
 }
 
 .sidenav {

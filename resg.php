@@ -17,7 +17,7 @@ if(isset($_POST['btn-save']))
     $sql = mysql_query("INSERT INTO Users (EmailId,Password,UserRoleId)
                VALUES ('".$mail."','".$password."',2)");
      echo "successful";
-     header('location:index.php?msg=successful');
+     header('location:dashboardNonAdmin.php?msg=successful');
 }
 else{
     echo "unsuccessful";

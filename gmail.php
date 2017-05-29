@@ -7,12 +7,11 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <link href="assets/css/styleGmail.css" rel="stylesheet" type="text/css" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
-
 </head>
+
 <body>
 <?php
 
@@ -59,8 +58,6 @@ if (isset($_SESSION['access_token'])) {
      echo '<div class="googleLogin"><a class="googleLogin" href=" '.$loginUrl. ' ">Login through Google</a></div>';
 }
 
-
-
 // Check if we have an access token ready for API call
 try
 {
@@ -69,115 +66,108 @@ try
 
           ?>
 
-           <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="googlecharts.php">Charts</a>
-        <a href="displayHtml.php">Messages Table</a>
-        <a href="usersTable.php">Users Table</a>
-        <a href="userRoleTable.php">User Role Table</a>
-        <a href="gmail.php">Inbox</a>
-    </div>
+          <div id="mySidenav" class="sidenav">
+               <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+               <a href="googlecharts.php">Charts</a>
+               <a href="displayHtml.php">Messages Table</a>
+               <a href="usersTable.php">Users Table</a>
+               <a href="userRoleTable.php">User Role Table</a>
+               <a href="gmail.php">Inbox</a>
+          </div>
 
-    <div id="main">
-        <!-- <div class="row"> -->
-            <nav class="navbar navbar-inverse mynavheader">
-            <!-- <div class="container-fluid"> -->
-                <div class="navbar-header">
+          <div id="main">
+          <nav class="navbar navbar-inverse mynavheader">
+               <div class="navbar-header">
                     <span style="font-size:25px;cursor:pointer;position: absolute;top: 8px;left: 14px;" onclick="openNav()">&#9776;</span>
-                    <!-- <a class="navbar-brand" href="#">Moodswing</a> -->
-                </div>
-                <ul class="nav navbar-nav">
+               </div>
+               <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Filter by </a></li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Date
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <form action="filterDate.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">Date</h2><hr /> -->
-                                <div id="error">
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class=" dateform form-control" placeholder="From dd/mm/yyyy" name="fromDate" id="fromDate" />
-                                    <span id="from"></span>
-                                </div>
-                                <div class="form-group">
-                                    <input type="date" class="form-control" placeholder="To dd/mm/yyyy" name="toDate" id="toDate" />
-                                    <span id="to"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">
-                                    Submit
-                                    </button>
-                                </div>
-                            </form>
-                        </ul>
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Date
+                         <span class="caret"></span></a>
+                         <ul class="dropdown-menu">
+                              <form action="filterDate.php" class="form-signin" method="post" id="register-form">
+                                   <div id="error">
+                                   </div>
+                                   <div class="form-group">
+                                        <input type="date" class=" dateform form-control" placeholder="From dd/mm/yyyy" name="fromDate" id="fromDate" />
+                                        <span id="from"></span>
+                                   </div>
+                                   <div class="form-group">
+                                        <input type="date" class="form-control" placeholder="To dd/mm/yyyy" name="toDate" id="toDate" />
+                                        <span id="to"></span>
+                                   </div>
+                                   <div class="form-group">
+                                        <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">
+                                             Submit
+                                        </button>
+                                   </div>
+                              </form>
+                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Email Id
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <form action="filterEmail.php" class="form-signin" method="post" id="register-form">
-                               <!-- <h2 class="form-signin-heading">Email Id</h2><hr /> -->
-                               <div id="error">
-                               </div>
-                               <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
-                                    <span id="from"></span>
-                               </div>
-                               <div class="form-group">
-                                    <button type="submit" class="btn btn-default" name="btn-email" id="btn-email-submit">
-                                      Submit
-                                    </button>
-                               </div>
-                            </form>
-                        </ul>
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Email Id
+                              <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu">
+                              <form action="filterEmail.php" class="form-signin" method="post" id="register-form">
+                                   <div id="error">
+                                   </div>
+                                   <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
+                                        <span id="from"></span>
+                                   </div>
+                                   <div class="form-group">
+                                        <button type="submit" class="btn btn-default" name="btn-email" id="btn-email-submit">
+                                             Submit
+                                        </button>
+                                   </div>
+                              </form>
+                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Activity
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <form action="filterActivity.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">Activity</h2><hr /> -->
-                                <div id="error">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Activity" name="Activity" id="Activity" />
-                                    <span id="from"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default" name="btn-activity" id="btn-activity-submit">
-                                    Submit
-                                    </button>
-                                </div>
-                            </form>
-                        </ul>
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Activity
+                              <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu">
+                              <form action="filterActivity.php" class="form-signin" method="post" id="register-form">
+                                   <div id="error">
+                                   </div>
+                                   <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Activity" name="Activity" id="Activity" />
+                                        <span id="from"></span>
+                                   </div>
+                                   <div class="form-group">
+                                        <button type="submit" class="btn btn-default" name="btn-activity" id="btn-activity-submit">
+                                             Submit
+                                        </button>
+                                   </div>
+                              </form>
+                         </ul>
                     </li>
                     <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Content
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <form action="filterContent.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">content</h2><hr /> -->
-                                <div id="error">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Content" name="Content" id="Content" />
-                                    <span id="from"></span>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-default" name="btn-content" id="btn-content-submit">
-                                    Submit
-                                    </button>
-                                </div>
-                            </form>
-                        </ul>
+                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Content
+                              <span class="caret"></span>
+                         </a>
+                         <ul class="dropdown-menu">
+                              <form action="filterContent.php" class="form-signin" method="post" id="register-form">
+                                   <div id="error">
+                                   </div>
+                                   <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="Content" name="Content" id="Content" />
+                                        <span id="from"></span>
+                                   </div>
+                                   <div class="form-group">
+                                        <button type="submit" class="btn btn-default" name="btn-content" id="btn-content-submit">
+                                             Submit
+                                        </button>
+                                   </div>
+                              </form>
+                         </ul>
                     </li>
                 </ul>
-            <!-- </div> -->
-        </nav>
-        <!-- </div> -->
+          </nav>
 
-        <!-- <div class="row"> -->
           <div class="panel panel-default mytable">
 
                <table class="table">
@@ -187,8 +177,7 @@ try
                               <header class="panel-heading">
                                    <strong>Messages</strong>
                                    </header>
-                                   <table class="table">
-
+                                   <table class="table" id="pagination_data">
                                         <thead>
                                              <tr>
                                                   <!-- Displaying the data extracted from running the query in a tabular format. -->
@@ -288,34 +277,52 @@ try
                                                 </div>
                                               </table>
                                             </div>
-
                                           </div>
-<?php
-
-                                                       //exit();
-
-
-
+                                          <?php
+                                             //exit();
      }
 
-}catch (Google_Auth_Exception $e)
+}
+catch (Google_Auth_Exception $e)
 {
      echo 'Looks like your access token has expired. Click <a href=" '.$loginUrl. ' ">here</a> to login.';
 }
-
  ?>
 
+<script>
+     function openNav()
+     {
+          document.getElementById("mySidenav").style.width = "234px";
+          document.getElementById("main").style.marginLeft = "234px";
+     }
+
+     function closeNav()
+     {
+          document.getElementById("mySidenav").style.width = "0";
+          document.getElementById("main").style.marginLeft= "0";
+     }
+</script>
 
 <script>
-function openNav() {
-    document.getElementById("mySidenav").style.width = "234px";
-    document.getElementById("main").style.marginLeft = "234px";
-}
+     $(document).ready(function(){
+          load_data();
+          function load_data(page)
+          {
+               $.ajax({
+                    url:"pagination.php",
+                    method:"POST",
+                    data:{page:page},
+                    success:function(data){
+                         $('#pagination_data').html(data);
+                    }
+               })
+          }
+     $(document).on('click', '.pagination_link', function(){
+          var page = $(this).attr("id");
+          load_data(page);
+          });
+     });
+ </script>
 
-function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.getElementById("main").style.marginLeft= "0";
-}
-</script>
 </body>
 </html>

@@ -4,8 +4,11 @@
 
 include 'dbconfig.php';
 session_start();
-?>
-<?php
+
+if(isset($_POST['btn-resg']))
+     {
+          header('location:resgHtml.php?msg=successful');
+     }
 
 // Checking to see if the login button "isset", i.e. if it has been clicked, then the following code will be executed.
 if(isset($_POST['btn-login']))

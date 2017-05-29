@@ -39,7 +39,8 @@
 				<br/>
 				<input type="password" id="user_password" name="user_password">
 				<br/>
-				<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Sign In</button>
+				<button type="submit" class="btn btn-default" name="btn-login" id="btn-submit">Log In</button>
+				<button type="submit" class="btn btn-default" name="btn-resg" id="btn-resg">Sign Up</button>
 				<br/>
 			</div>
 	</div>
