@@ -21,7 +21,7 @@
 <body>
 	<div class="container">
 
-          <form action="resg.php" class="form-signin" method="post" id="register-form">
+          <form  class="form-signin" id="register-form">
 
 			<div class="top">
 				<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
@@ -32,11 +32,15 @@
 				</div>
 				<label for="username">Username</label>
 				<br/>
-				<input type="text" id="user_email" name="user_email">
+				<input type="text" id="user_email" name="user_email" class="form-control">
+				<div>
+					<span id="error_message" class="text-danger">&nbsp;</span>
+					<span id="success_message" class="text-success">&nbsp;</span>
+				</div>
 				<br/>
 				<label for="password">Password</label>
 				<br/>
-				<input type="password" id="password" name="password">
+				<input type="password" id="password" name="password" class="form-control">
 				<br/>
                     <br/>
 				<label for="password">Confirm Password</label>
@@ -46,6 +50,8 @@
 				<button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">Sign Up</button>
 				<br/>
 			</div>
+			<div id="success_message"></div>
+		</form>
 	</div>
 </body>
 
@@ -68,4 +74,40 @@
 	});
 </script>
 
+<script>
+$(document).ready(function(){
+     $('#btn-submit').click(function(){
+          var email = $('#user_email').val();
+           var allowedDomains = [ 'innoraft.com' ];
+           var domain = $("#user_email").val().split("@")[1];
+          if(email == '')
+          {
+               $('#error_message').html('<font color="red"><b>Email required</b></font>');
+          }
+          else
+          {
+             if ($.inArray(domain, allowedDomains) !== -1)
+             {
+                $('#error_message').html('');
+               $.ajax({
+                    url:"resg.php?email="+email+"&password="+password+,
+                    type:"GET",
+                    //data:{email:email},
+                    success:function(data){
+                         $("form").trigger("reset");
+                         $('#success_message').css('visibility', 'visible').html(data);
+                         setTimeout(function(){
+                              $('#success_message').css('visibility', 'hidden');
+                         }, 3000);
+                    }
+               });
+
+             }
+             else{
+                     $('#error_message').html('<font color="red"><b>Unauthorized Domain name</b></font>');
+             }
+          }
+     });
+});
+</script>
 </html>

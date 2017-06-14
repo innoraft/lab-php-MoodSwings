@@ -8,6 +8,8 @@ body {
 	color: #666;
 }
 
+#success_message{ display: none;}
+
 /* Typography */
 h1#title {
 	font-family: 'Roboto Slab', serif;

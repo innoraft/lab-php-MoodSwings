@@ -11,7 +11,6 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <link href="assets/css/styleDisplayHtml.css" rel="stylesheet" type="text/css" media="screen">
 </head>
-
 <body>
      <?php
      include 'dbconfig.php';
@@ -35,37 +34,10 @@
                <div class="navbar-header">
                     <span style="font-size:25px;cursor:pointer;position: absolute;top: 8px;left: 14px;" onclick="openNav()">&#9776;</span>
                </div>
-               <!-- <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Filter by </a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Date
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu mydropdownmenu">
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Email Id
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Activity
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        </ul>
-                    </li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Content
-                        <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                        </ul>
-                    </li>
-               </ul> -->
           </nav>
 
           <div class="panel panel-default mytable">
-                <table class="table">
+                <table class="table" id="table">
                     <div class="col-sm-6">
                         <section class="panel">
                             <header class="panel-heading">
@@ -75,98 +47,81 @@
                        <div class="col-sm-6">
                             <!--Filtering starts here-->
                             <ul class="nav navbar-nav">
-                               <li class="active"><a href="#">Filter by </a></li>
-                               <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Date
-                                    <span class="caret"></span></a>
-                                    <ul class="dropdown-menu mydropdownmenu">
-                                        <form action="filterDate.php" class="form-signin" method="post" id="register-form">
-                                           <div id="error">
-                                           </div>
-                                           <div class="form-group">
-                                                <input type="date" class=" dateform form-control" placeholder="From dd/mm/yyyy" name="fromDate" id="fromDate" />
-                                                <span id="from"></span>
-                                           </div>
-                                           <div class="form-group">
-                                                <input type="date" class="form-control" placeholder="To dd/mm/yyyy" name="toDate" id="toDate" />
-                                                <span id="to"></span>
-                                           </div>
-                                           <div class="form-group">
-                                                <button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">
-                                                Submit
-                                                </button>
-                                           </div>
-                                        </form>
-                                    </ul>
-                               </li>
-                               <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Email Id
-                                    <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <form action="filterEmail.php" class="form-signin" method="post" id="register-form">
-                                           <div id="error">
-                                           </div>
-                                           <div class="form-group">
-                                                <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
-                                                <span id="from"></span>
-                                           </div>
-                                           <div class="form-group">
-                                                <button type="submit" class="btn btn-default" name="btn-email" id="btn-email-submit">
-                                                  Submit
-                                                </button>
-                                           </div>
-                                        </form>
-                                    </ul>
-                               </li>
-                               <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Activity
-                                    <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <form action="filterActivity.php" class="form-signin" method="post" id="register-form">
-                                           <div id="error">
-                                           </div>
-                                           <div class="form-group">
-                                                <!-- <input type="text" class="form-control" placeholder="Activity" name="Activity" id="Activity" /> -->
-                                                <select class="form-control" placeholder="Activity" name="Activity" id="Activity">
-                                                     <option value="feeling">feeling</option>
-                                                     <option value="eating">eating</option>
-                                                     <option value="watching">watching</option>
-                                                </select>
-                                                <span id="from"></span>
-                                           </div>
-                                           <div class="form-group">
-                                                <button type="submit" class="btn btn-default" name="btn-activity" id="btn-activity-submit">
-                                                Submit
-                                                </button>
-                                           </div>
-                                        </form>
-                                    </ul>
-                               </li>
-                               <li class="dropdown">
-                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Content
-                                    <span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <form action="filterContent.php" class="form-signin" method="post" id="register-form">
-                                           <div id="error">
-                                           </div>
-                                           <div class="form-group">
-                                                <!-- <input type="text" class="form-control" placeholder="Content" name="Content" id="Content" /> -->
-                                                <select class="form-control" placeholder="Content" name="Content" id="Content">
-                                                     <option value="fresh">fresh</option>
-                                                     <option value="happy">happy</option>
-                                                     <option value="excited">excited</option>
-                                                </select>
-                                                <span id="from"></span>
-                                           </div>
-                                           <div class="form-group">
-                                                <button type="submit" class="btn btn-default" name="btn-content" id="btn-content-submit">
-                                                Submit
-                                                </button>
-                                           </div>
-                                        </form>
-                                    </ul>
-                               </li>
+                               <li><a href="displayHtml.php"><img src="assets/images/refresh.png"></a></li>
+                               <li><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#sortModal">Sort</button></li>
+                               <!-- Modal -->
+                               <div class="modal fade" id="sortModal" role="dialog">
+                                    <div class="modal-dialog modal-sm">
+                                        <div class="modal-content">
+                                             <div class="modal-header">
+                                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                  <h4 class="modal-title">Select options to filter</h4>
+                                             </div>
+                                             <div class="modal-body">
+                                                  <!-- The filter options goes here -->
+                                                  <!-- The form starts here -->
+                                                  <form class="form-signin" method="post" id="register-form">
+                                                     <div id="error">
+                                                     </div>
+                                                     <h5>Select Date</h5>
+                                                     <!-- Filter date -->
+                                                     <div class="form-group">
+                                                          <input type="date" class=" dateform form-control" placeholder="From dd/mm/yyyy" name="fromDate" id="fromDate" />
+                                                          <span id="from"></span>
+                                                     </div>
+                                                     <div class="form-group">
+                                                          <input type="date" class="form-control" placeholder="To dd/mm/yyyy" name="toDate" id="toDate" />
+                                                          <span id="to"></span>
+                                                     </div>
+                                                  <h5>Select Email</h5>
+                                                  <!-- Filter Email -->
+                                                     <div id="error">
+                                                     </div>
+                                                     <div class="form-group">
+                                                          <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
+                                                          <span id="from"></span>
+                                                     </div>
+                                                  <h5>Select Activity</h5>
+                                                  <!-- Filter Activity -->
+                                                     <div id="error">
+                                                     </div>
+                                                     <div class="form-group">
+                                                          <select class="form-control" placeholder="Activity" name="Activity" id="Activity">
+                                                               <option value="feeling">feeling</option>
+                                                               <option value="eating">eating</option>
+                                                               <option value="watching">watching</option>
+                                                          </select>
+                                                          <span id="from"></span>
+                                                     </div>
+                                                  <h5>Select Content</h5>
+                                                  <!-- Filter Content -->
+                                                     <div id="error">
+                                                     </div>
+                                                     <div class="form-group">
+                                                          <select class="form-control" placeholder="Content" name="Content" id="Content">
+                                                               <option value="fresh">fresh</option>
+                                                               <option value="happy">happy</option>
+                                                               <option value="excited">excited</option>
+                                                          </select>
+                                                          <span id="from"></span>
+                                                     </div>
+                                                     <!-- Submit button -->
+                                                     <div class="form-group">
+                                                          <button type="submit" class="btn btn-default" name="btn-save" id="btn-content-submit">
+                                                          Submit
+                                                          </button>
+                                                     </div>
+                                                  </form>
+                                                  <!-- The form ends here -->
+                                             </div>
+                                             <div class="modal-footer">
+                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                                             </div>
+                                        </div>
+                                   </div>
+                              </div>
                             </ul>
+                            <!--Filtering ends here-->
                                 <table class="table" id="pagination_data">
                                     <thead>
                                         <tr>
@@ -203,9 +158,7 @@
                 </div>
      </div>
 
-
-
-
+</body>
 
 <script>
      function openNav()
@@ -235,13 +188,82 @@
                     }
                })
           }
-     $(document).on('click', '.pagination_link', function(){
-          var page = $(this).attr("id");
-          load_data(page);
-          });
-     });
+      $(document).on('click', '.pagination_link', function(){
+           var page = $(this).attr("id");
+           load_data(page);
+      });
+ });
  </script>
 
 </body>
+
+<script>
+    $(document).ready(function(){
+     $('#btn-content-submit').click(function(e){
+
+          e.preventDefault(); //This prevents the default action of the button
+          // console.log("works");
+          var fromDate = $('#fromDate').val();
+          var toDate = $('#toDate').val();
+          var Activity = $('#Activity').val();
+          var Content = $('#Content').val();
+
+          // console.log(fromDate);
+          // console.log(toDate);
+          // console.log(Activity);
+          // console.log(Content);
+
+
+               $.ajax({
+                    url:"filter.php",
+                    type:"POST",
+                    data :{
+                         fromDate : fromDate,
+                         toDate : toDate,
+                         Content : Content,
+                         Activity : Activity
+           		}, // sending the value of counter and blogtag to the server
+                    //data:{email:email},
+                    success:function(data){
+                    // $('#displayHtml').html(data);
+                    $("#pagination_data").empty(); // Clearing the table contents so that the new fetched data from the filtering can be populated here.
+                    // console.log(data);
+                    $('#pagination_data').html(data);
+                    }
+               });
+
+     });
+});
+ </script>
+
+<!-- <script>
+
+$(document).ready(function(){
+$('#btn-content-submit').click(function(){
+
+
+ $.ajax({
+
+ 		data :{
+               fromDate : fromDate,
+               toDate : toDate,
+ 			EmailId : EmailId,
+               Content : Content,
+               Activity : Activity
+ 		}, // sending the value of counter and blogtag to the server
+
+ 		type: 'POST',
+ 		url : 'filter.php' file for server side functions.
+
+ 	})
+
+     .done(function(data){ // This function will execute after the AJAX request.
+
+      	console.log("works");
+    	});
+}
+}
+
+</script> -->
 
 </html>

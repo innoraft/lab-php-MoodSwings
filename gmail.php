@@ -18,26 +18,26 @@
 // This file is for extracting everything in a mail.
 include 'dbconfig.php';
 
-// Start Session
+// Start Session.
 session_start();
 
-// Include Autoloader
+// Include Autoloader.
 require 'vendor/autoload.php';
 
 // Getting API Credentials from config.ini .
 $config = parse_ini_file('initialization/config.ini');
 
-// Create Google Client
+// Create Google Client.
 $client = new Google_Client();
 $client->setClientId($config['client_id']);
 $client->setClientSecret($config['client_secret']);
 $client->setRedirectUri($config['redirect_url']);
 $client->addScope('https://mail.google.com/');
 
-// Create Gmail Service
+// Create Gmail Service.
 $service = new Google_Service_Gmail($client);
 
-// Check if the user is logged out
+// Check if the user is logged out.
 if (isset($_REQUEST['logout'])) {
      unset($_SESSION['access_token']);
 }
@@ -50,7 +50,7 @@ if (isset($_GET['code'])) {
      header('Location: ' . filter_var($url,FILTER_VALIDATE_URL));
 }
 
-// Check if we have an access token in the session
+// Check if we have an access token in the session.
 if (isset($_SESSION['access_token'])) {
      $client->setAccessToken($_SESSION['access_token']);
 } else {
@@ -58,7 +58,7 @@ if (isset($_SESSION['access_token'])) {
      echo '<div class="googleLogin"><a class="googleLogin" href=" '.$loginUrl. ' ">Login through Google</a></div>';
 }
 
-// Check if we have an access token ready for API call
+// Check if we have an access token ready for API call.
 try
 {
      if (isset($_SESSION['access_token']) && $client->getAccessToken())
@@ -193,46 +193,46 @@ try
                                              <tr>
                                              <?php
 
-                                             // We make API Calls
-                                             $list = $service->users_messages->listUsersMessages('me',['maxResults'=>1000,'labelIds'=> 'INBOX']);
+                                             // We make API Calls.
+                                             $list = $service->users_messages->listUsersMessages('me',['maxResults'=>100000000,'labelIds'=> 'INBOX']);
                                              $messageList = $list->getMessages();
 
 
                                              foreach($messageList as $id_key=>$id_val)
                                                   {
-                                                       // echo "<br><strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]<br>"; //displays the index number with the message
+                                                       // echo "<br><strong>Message number</strong> [$id_key]=> <strong>Message Id</strong> [$id_val->id]<br>"; //displays the index number with the message.
                                                        $id=$id_val->id;
                                                        // print_r($messages->getSnippet());
                                                        $messages = $service->users_messages->get('me',$id);
 
-                                                       // displays the message snippet
+                                                       // displays the message snippet.
                                                        $data = $messages->getSnippet();
                                                        // echo "<strong>String:</strong> $data";
 
-                                                       // remove the +1 if you don't want the ? included
+                                                       // remove the +1 if you don't want the ? included.
                                                        $cut_position = strpos($data, ':');
                                                        $string= substr($data, 0, $cut_position);
                                                        $activity = substr($string, strpos($string, ";") +1);
-                                                       // displays the activity
+                                                       // displays the activity.
                                                        // echo "<strong>Activity:</strong> $activity<br>";
 
                                                        $content = substr($data, strpos($data, ":") +1);
-                                                       // Triming the spaces
+                                                       // Triming the spaces.
                                                        $emotions = trim($content);
-                                                       // displays the content
+                                                       // displays the content.
                                                        // echo "<strong>Content:</strong> $emotions<br>";
 
                                                             foreach ($messages->payload->headers as $dateEmail=>$value)
                                                                  {
                                                                       if ($dateEmail == 1)
                                                                            {
-                                                                                // displays the entire string under value
+                                                                                // displays the entire string under value.
                                                                                 // echo $value->value;
                                                                                 $dateString = substr($value->value, strpos($value->value, ";") +1);
                                                                                 $gotDate = new DateTime($dateString);
                                                                                 $date =$gotDate->format('Y-m-d');
                                                                                 $timestamp = strtotime($date);
-                                                                                // displays the date and time
+                                                                                // displays the date and time.
                                                                                 // echo "<strong>Date:</strong> $date<br>";
                                                                            }
                                                                       if ($dateEmail == 5)
@@ -240,12 +240,25 @@ try
                                                                                 // echo $value->value;
                                                                                 $pieces = explode('of',$value->value);
                                                                                 $mail=substr($pieces[1],0,-1);
-                                                                                // displays the entire string after of
+                                                                                // displays the entire string after of.
                                                                                 // echo $mail;
-                                                                                // remove the +1 if you don't want the ? included
+                                                                                // remove the +1 if you don't want the ? included.
                                                                                 $cut_position = strpos($mail, 'designates');
+                                                                                // This contains the entire email id.
                                                                                 $stringEmail = substr($mail, 0, $cut_position);
-                                                                                // displays the email id
+                                                                                // Separating the first part and the second part of email id.
+                                                                                $parts = explode("@", $stringEmail);
+                                                                                // Storing the first part of the email id in $username.
+                                                                                $username = $parts[0];
+                                                                                // echo $username;
+                                                                                $parts = explode(".", $username);
+                                                                                // Stores the first part of the username before "."
+                                                                                $first = $parts[0];
+                                                                                // Stores the second part of the username before "."
+                                                                                $second = $parts[1];
+                                                                                //echo $first;
+                                                                                //echo $second;
+                                                                                // displays the email id.
                                                                                 // echo "<strong>Email Id:</strong> $stringEmail<br>";?>
 
                                                                            <!-- Code to print values in tabular format starts here -->
