@@ -1,5 +1,5 @@
 <?php
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 include 'mail.php';
 if(isset($_POST['email']))
 {

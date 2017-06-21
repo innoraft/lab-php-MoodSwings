@@ -1,7 +1,7 @@
 <!-- This file handles the actions for filtering the options -->
 
      <?php
-     include 'dbconfig.php';
+     include 'initialization/dbconfig.php';
 
      //Sets the date specified in fromDate in the variable $fromDate.
     $fromDate=$_POST['fromDate'];

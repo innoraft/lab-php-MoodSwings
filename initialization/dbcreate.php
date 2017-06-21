@@ -1,5 +1,7 @@
+<!-- This file deals with creating the database and the necessary tables for the portal to work -->
 
 <?php
+
 /*..............DATABASE CONNECTION AND DATABASE CREDENTIALS ...*/
 include ("dbcredentials.php");
 $db = mysql_connect($serverName, $userName, $password);
@@ -9,7 +11,6 @@ die("Connection failed: " . mysql_error());
 
 
 //.......CREATE DATABASE moodswing.........
-
 $create_database=mysql_query("CREATE DATABASE ".$databaseName." ;");
 mysql_select_db($databaseName,$db);
 if($create_database == TRUE)

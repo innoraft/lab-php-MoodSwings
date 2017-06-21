@@ -22,7 +22,7 @@
 <?php
 
 // This file is for extracting everything in a mail.
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 
 // Start Session.
 session_start();

@@ -15,7 +15,7 @@
 </head>
 <body>
      <?php
-     include 'dbconfig.php';
+     include 'initialization/dbconfig.php';
 
          // Query to extract data from a given date range.
          $sqlnum = mysql_query("SELECT  *  FROM Messages");
@@ -160,7 +160,6 @@
           document.getElementById("mySidenav").style.width = "234px";
           document.getElementById("main").style.marginLeft = "234px";
      }
-
      function closeNav()
      {
           document.getElementById("mySidenav").style.width = "0";

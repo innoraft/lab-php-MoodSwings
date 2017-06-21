@@ -1,6 +1,6 @@
 <?php
  //pagination.php
- include 'dbconfig.php';
+ include 'initialization/dbconfig.php';
 
  $record_per_page = 5;
  $page = '';

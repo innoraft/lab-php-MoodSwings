@@ -1,0 +1,14 @@
+<!-- Stylesheet for logout button -->
+<link rel="stylesheet" href="assets/css/logoutButton.css">
+
+<?php
+session_start();
+if ($_SESSION['loggedIn'] == true) {
+?>
+
+<a href="logout.php"><button class="logout" name="logout">Log Out</button></a>
+
+<?php }
+else {
+     header('location:index.php?msg=user_not_logged_in');
+} ?>

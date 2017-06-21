@@ -1,5 +1,5 @@
 <?php
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 
 $authcode = isset($_GET['authcode']) ? $_GET['authcode'] : ''; // Had faced error in this.
 $email = isset($_GET['email']) ? $_GET['email'] : ''; // Had faced error in this.

@@ -1,7 +1,7 @@
 <!-- This file takes values from index.php and runs a query to login a user into the portal -->
 
 <?php
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 session_start();
 
 if(isset($_POST['btn-resg']))

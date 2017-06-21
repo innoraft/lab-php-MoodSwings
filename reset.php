@@ -1,5 +1,5 @@
 <?php
-	include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 	session_start();
 		if(isset($_POST["oldpassword"]) && isset($_POST["cnewpassword"]))
 	{

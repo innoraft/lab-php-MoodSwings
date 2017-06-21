@@ -1,7 +1,7 @@
 <!-- This file takes the values from registerHtml.php and runs a query to register a new user into the portal -->
 
 <?php
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 // Checking if the button is clicked.
 if(isset($_POST['btn-save']))
 {

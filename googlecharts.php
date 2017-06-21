@@ -1,7 +1,7 @@
 <!-- This file deals with displaying the analytics in google charts -->
 
 <?php
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 
 session_start();
 if ($_SESSION['loggedIn'] == true) {

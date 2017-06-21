@@ -1,5 +1,5 @@
 <?
-include 'dbconfig.php';
+include 'initialization/dbconfig.php';
 if(isset($_POST['cnewpassword']) || isset($_POST['authcode'])|| isset($_POST['email']))
   {
       $cnewpassword = md5($_POST['cnewpassword']);

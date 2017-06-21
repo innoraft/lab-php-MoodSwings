@@ -15,7 +15,7 @@
 </head>
 <body>
      <?php
-     include 'dbconfig.php';
+     include 'initialization/dbconfig.php';
 
          // Query to extract data from a given date range.
          $sql = mysql_query("SELECT  *  FROM UserRole");

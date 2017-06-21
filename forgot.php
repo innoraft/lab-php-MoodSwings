@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<?php include 'dbconfig.php'; ?>
+<?php  include 'initialization/dbconfig.php'; ?>
 <html lang="en">
 <head>
   <title>Moodswing</title>
