@@ -1,3 +1,5 @@
+<!-- This file deals with registering a new user to the portal -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,40 +17,87 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
+	<!-- This is for the default theme of the validator plugin -->
+	<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 	<div class="container">
 
           <form action="resg.php" class="form-signin" method="post" id="register-form">
-
-			<div class="top">
-				<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
-			</div>
+			<div class="top"><h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1></div>
 			<div class="login-box animated fadeInUp">
-				<div class="box-header">
-					<h2>Sign Up</h2>
-				</div>
-				<label for="username">Username</label>
+				<div class="box-header"><h2>Sign Up</h2></div>
+				<!-- Error dialog where the error messages will be displayed -->
+				<div id="error-dialog" class="form-control"></div>
+
+				<!-- Label and input for email id -->
+				<label for="username">Username</label><br>
+				<input type="text"
+						  id="email"
+						  name="email"
+						  pattern="[a-z0-9._%+-]+@[innoraft]+\.[a-z]{2,3}$"
+						  data-validation="email"
+						  data-validation-error-msg-container="#error-dialog"
+						  data-validation-error-msg="You did not enter a valid e-mail">
 				<br/>
-				<input type="text" id="user_email" name="user_email">
-				<br/>
-				<label for="password">Password</label>
-				<br/>
-				<input type="password" id="password" name="password">
-				<br/>
+
+				<!-- Label and input for password		   -->
+				<label for="password">Password</label><br>
+				<input type="password"
+						  id="password"
+						  name="password"
+						  data-validation="strength"
+		 		   		  data-validation-strength="2"
+						  data-validation-error-msg-container="#error-dialog"><br>
+						 <span class="strength-meter"></span>
+
                     <br/>
+
+				<!-- Label and input for confirm password -->
 				<label for="password">Confirm Password</label>
+				<input type="password"
+						  id="pass"
+						  name="pass"
+						  data-validation-confirm="password"
+						  data-validation-error-msg="Your passwords do not match"
+						  data-validation-error-msg-container="#error-dialog">
 				<br/>
-				<input type="password" id="cpassword" name="cpassword">
-				<br/>
+
+				<!-- Button to submit the form -->
 				<button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">Sign Up</button>
 				<br/>
 			</div>
+		</form>
+
 	</div>
 </body>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<!-- Script to validate the form -->
+<script>
+	$.validate({
+		modules : 'security',
+		onModulesLoaded : function() {
+		// The config variable stores the attributes of the paasword strength-meter
+    		var config = {
+      	fontSize: '12pt',
+      	padding: '4px',
+      	bad : 'Very bad',
+      	weak : 'Weak',
+      	good : 'Good',
+      	strong : 'Strong'
+    };
+
+	// displayPasswordStrength() function is responsible for displaying the strength-meter while typing
+    $('input[name="password"]').displayPasswordStrength(config);
+  }
+	});
+</script>
+
+<!-- Script to animate the login box elements -->
 <script>
 	$(document).ready(function () {
     	$('#logo').addClass('animated fadeInDown');

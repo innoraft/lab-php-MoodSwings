@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- This file deals with displaying the users table by running a query -->
+
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,12 +38,9 @@
     </div>
 
     <div id="main">
-        <!-- <div class="row"> -->
             <nav class="navbar navbar-inverse mynavheader">
-            <!-- <div class="container-fluid"> -->
                 <div class="navbar-header">
                     <span style="font-size:25px;cursor:pointer;position: absolute;top: 8px;left: 14px;" onclick="openNav()">&#9776;</span>
-                    <!-- <a class="navbar-brand" href="#">Moodswing</a> -->
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Filter by </a></li>
@@ -50,7 +49,6 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <form action="filterDate.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">Date</h2><hr /> -->
                                 <div id="error">
                                 </div>
                                 <div class="form-group">
@@ -74,7 +72,6 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <form action="filterEmail.php" class="form-signin" method="post" id="register-form">
-                               <!-- <h2 class="form-signin-heading">Email Id</h2><hr /> -->
                                <div id="error">
                                </div>
                                <div class="form-group">
@@ -94,7 +91,6 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <form action="filterActivity.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">Activity</h2><hr /> -->
                                 <div id="error">
                                 </div>
                                 <div class="form-group">
@@ -114,7 +110,6 @@
                         <span class="caret"></span></a>
                         <ul class="dropdown-menu">
                             <form action="filterContent.php" class="form-signin" method="post" id="register-form">
-                                <!-- <h2 class="form-signin-heading">content</h2><hr /> -->
                                 <div id="error">
                                 </div>
                                 <div class="form-group">
@@ -130,11 +125,8 @@
                         </ul>
                     </li>
                 </ul>
-            <!-- </div> -->
         </nav>
-        <!-- </div> -->
 
-        <!-- <div class="row"> -->
             <div class="panel panel-default mytable">
                 <table class="table">
                     <div class="col-sm-6">
@@ -169,7 +161,6 @@
                         </section>
                     </div>
                 </div>
-            <!-- </div> -->
         </div>
 
 <script>

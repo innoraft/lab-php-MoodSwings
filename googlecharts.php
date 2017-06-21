@@ -1,9 +1,7 @@
+<!-- This file deals with displaying the analytics in google charts -->
+
 <?php
 include 'dbconfig.php';
-// if(isset($_GET['datee']))
-// {
-//      $selectDate=$_GET['datee'];
-//     $timestamp = strtotime($selectDate);
 
   $lista = array();
   $dens = array();
@@ -109,31 +107,7 @@ include 'dbconfig.php';
 </div>
 </body>
 
-<!-- <script>
-$(document).ready(function(){
-$('#submit').click(function(){
-     var datee = $('#this_date').val();
-     if(datee == '')
-     {
-          $('#error_message').html("Email required");
-     }
-     else
-     {
-          $('#error_message').html('');
-          $.ajax({
-               url:"googlecharts.php?datee="+datee,
-               type:"GET",
-               //data:{email:email},
-               success:function(data){
-                    alert(data);
-                    $('#columnchart_values').css('visibility', 'visible').html(data);
-               }
-          });
-     }
-});
-});
-</script> -->
-
+<!-- script for opening and closing of the nav bar -->
 <script>
 function openNav() {
     document.getElementById("mySidenav").style.width = "234px";

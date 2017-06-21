@@ -1,3 +1,5 @@
+<!-- This file deals with running the query for populating the chart with the respective data -->
+
 <?php
 // Connect to MySQL
 $link = new mysqli( 'localhost', 'root', 'ascii', 'moodswing' );
