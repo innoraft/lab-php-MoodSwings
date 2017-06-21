@@ -14,10 +14,17 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <link href="assets/css/styleDisplayHtml.css" rel="stylesheet" type="text/css" media="screen">
     <script type="text/javascript" src="script.js"></script>
+
+    <!-- Stylesheet for logout button -->
+    <link rel="stylesheet" href="assets/css/logoutButton.css">
+
 </head>
 <body>
      <?php
      include 'dbconfig.php';
+
+     session_start();
+     if ($_SESSION['loggedIn'] == true) {
 
          // Query to extract data from a given date range.
          $sql = mysql_query("SELECT  *  FROM Users");
@@ -124,6 +131,7 @@
                             </form>
                         </ul>
                     </li>
+                    <a href="logout.php"><button class="logout" name="logout">Log Out</button></a>
                 </ul>
         </nav>
 
@@ -175,6 +183,10 @@ function closeNav() {
 }
 </script>
 
+<?php }
+else {
+     header('location:index.php?msg=user_not_logged_in');
+} ?>
 
 </body>
 </html>

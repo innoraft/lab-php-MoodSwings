@@ -3,6 +3,10 @@
 <?php
 include 'dbconfig.php';
 
+session_start();
+if ($_SESSION['loggedIn'] == true) {
+
+
   $lista = array();
   $dens = array();
   $cor = array();
@@ -32,6 +36,10 @@ include 'dbconfig.php';
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" media="screen">
   <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
   <link href="assets/css/styleGoogleCharts.css" rel="stylesheet" type="text/css" media="screen">
+
+  <!-- Stylesheet for logout button -->
+  <link rel="stylesheet" href="assets/css/logoutButton.css">
+
  <script type="text/javascript">
    google.charts.load("current", {packages:['corechart']});
    google.charts.setOnLoadCallback(drawChart);
@@ -97,6 +105,7 @@ include 'dbconfig.php';
                              </form>
                          </ul>
                      </li>
+                     <a href="logout.php"><button class="logout" name="logout">Log Out</button></a>
 
                </ul>
           </nav>
@@ -105,6 +114,11 @@ include 'dbconfig.php';
           <div id="columnchart_values"></div>
      </div>
 </div>
+<?php }
+else {
+     header('location:index.php?msg=user_not_logged_in');
+} ?>
+
 </body>
 
 <!-- script for opening and closing of the nav bar -->
