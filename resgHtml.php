@@ -1,3 +1,5 @@
+<!-- This file deals with registering a new user to the portal -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,46 +17,87 @@
 	<link rel="stylesheet" href="assets/css/style.css">
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
+	<!-- This is for the default theme of the validator plugin -->
+	<link href="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/theme-default.min.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
 	<div class="container">
 
-          <form  class="form-signin" id="register-form">
-
-			<div class="top">
-				<h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1>
-			</div>
+          <form action="resg.php" class="form-signin" method="post" id="register-form">
+			<div class="top"><h1 id="title" class="hidden"><span id="logo">Moodswings</span></h1></div>
 			<div class="login-box animated fadeInUp">
-				<div class="box-header">
-					<h2>Sign Up</h2>
-				</div>
-				<label for="username">Username</label>
+				<div class="box-header"><h2>Sign Up</h2></div>
+				<!-- Error dialog where the error messages will be displayed -->
+				<div id="error-dialog" class="form-control"></div>
+
+				<!-- Label and input for email id -->
+				<label for="username">Username</label><br>
+				<input type="text"
+						  id="email"
+						  name="email"
+						  pattern="[a-z0-9._%+-]+@[innoraft]+\.[a-z]{2,3}$"
+						  data-validation="email"
+						  data-validation-error-msg-container="#error-dialog"
+						  data-validation-error-msg="You did not enter a valid e-mail">
 				<br/>
-				<input type="text" id="user_email" name="user_email" class="form-control">
-				<div>
-					<span id="error_message" class="text-danger">&nbsp;</span>
-					<span id="success_message" class="text-success">&nbsp;</span>
-				</div>
-				<br/>
-				<label for="password">Password</label>
-				<br/>
-				<input type="password" id="password" name="password" class="form-control">
-				<br/>
+
+				<!-- Label and input for password		   -->
+				<label for="password">Password</label><br>
+				<input type="password"
+						  id="password"
+						  name="password"
+						  data-validation="strength"
+		 		   		  data-validation-strength="2"
+						  data-validation-error-msg-container="#error-dialog"><br>
+						 <span class="strength-meter"></span>
+
                     <br/>
+
+				<!-- Label and input for confirm password -->
 				<label for="password">Confirm Password</label>
+				<input type="password"
+						  id="pass"
+						  name="pass"
+						  data-validation-confirm="password"
+						  data-validation-error-msg="Your passwords do not match"
+						  data-validation-error-msg-container="#error-dialog">
 				<br/>
-				<input type="password" id="cpassword" name="cpassword">
-				<br/>
+
+				<!-- Button to submit the form -->
 				<button type="submit" class="btn btn-default" name="btn-save" id="btn-submit">Sign Up</button>
 				<br/>
 			</div>
-			<div id="success_message"></div>
 		</form>
+
 	</div>
 </body>
 
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+<!-- Script to validate the form -->
+<script>
+	$.validate({
+		modules : 'security',
+		onModulesLoaded : function() {
+		// The config variable stores the attributes of the paasword strength-meter
+    		var config = {
+      	fontSize: '12pt',
+      	padding: '4px',
+      	bad : 'Very bad',
+      	weak : 'Weak',
+      	good : 'Good',
+      	strong : 'Strong'
+    };
+
+	// displayPasswordStrength() function is responsible for displaying the strength-meter while typing
+    $('input[name="password"]').displayPasswordStrength(config);
+  }
+	});
+</script>
+
+<!-- Script to animate the login box elements -->
 <script>
 	$(document).ready(function () {
     	$('#logo').addClass('animated fadeInDown');
@@ -74,40 +117,4 @@
 	});
 </script>
 
-<script>
-$(document).ready(function(){
-     $('#btn-submit').click(function(){
-          var email = $('#user_email').val();
-           var allowedDomains = [ 'innoraft.com' ];
-           var domain = $("#user_email").val().split("@")[1];
-          if(email == '')
-          {
-               $('#error_message').html('<font color="red"><b>Email required</b></font>');
-          }
-          else
-          {
-             if ($.inArray(domain, allowedDomains) !== -1)
-             {
-                $('#error_message').html('');
-               $.ajax({
-                    url:"resg.php?email="+email+"&password="+password+,
-                    type:"GET",
-                    //data:{email:email},
-                    success:function(data){
-                         $("form").trigger("reset");
-                         $('#success_message').css('visibility', 'visible').html(data);
-                         setTimeout(function(){
-                              $('#success_message').css('visibility', 'hidden');
-                         }, 3000);
-                    }
-               });
-
-             }
-             else{
-                     $('#error_message').html('<font color="red"><b>Unauthorized Domain name</b></font>');
-             }
-          }
-     });
-});
-</script>
 </html>

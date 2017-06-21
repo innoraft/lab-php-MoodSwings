@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- This file is for displaying all the messages, accessible through messages option in dashboard -->
+
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,10 +63,9 @@
                                                   <!-- The filter options goes here -->
                                                   <!-- The form starts here -->
                                                   <form class="form-signin" method="post" id="register-form">
-                                                     <div id="error">
-                                                     </div>
-                                                     <h5>Select Date</h5>
+                                                     <div id="error"></div>
                                                      <!-- Filter date -->
+                                                     <h5>Select Date</h5>
                                                      <div class="form-group">
                                                           <input type="date" class=" dateform form-control" placeholder="From dd/mm/yyyy" name="fromDate" id="fromDate" />
                                                           <span id="from"></span>
@@ -73,16 +74,15 @@
                                                           <input type="date" class="form-control" placeholder="To dd/mm/yyyy" name="toDate" id="toDate" />
                                                           <span id="to"></span>
                                                      </div>
-                                                  <h5>Select Email</h5>
-                                                  <!-- Filter Email -->
-                                                     <div id="error">
-                                                     </div>
+                                                     <!-- Filter Email -->
+                                                     <h5>Select Email</h5>
+                                                     <div id="error"></div>
                                                      <div class="form-group">
                                                           <input type="text" class="form-control" placeholder="Email Id" name="EmailId" id="EmailId" />
                                                           <span id="from"></span>
                                                      </div>
-                                                  <h5>Select Activity</h5>
-                                                  <!-- Filter Activity -->
+                                                     <!-- Filter Activity -->
+                                                     <h5>Select Activity</h5>
                                                      <div id="error">
                                                      </div>
                                                      <div class="form-group">
@@ -93,10 +93,9 @@
                                                           </select>
                                                           <span id="from"></span>
                                                      </div>
-                                                  <h5>Select Content</h5>
-                                                  <!-- Filter Content -->
-                                                     <div id="error">
-                                                     </div>
+                                                     <!-- Filter Content -->
+                                                     <h5>Select Content</h5>
+                                                     <div id="error"></div>
                                                      <div class="form-group">
                                                           <select class="form-control" placeholder="Content" name="Content" id="Content">
                                                                <option value="fresh">fresh</option>
@@ -105,17 +104,11 @@
                                                           </select>
                                                           <span id="from"></span>
                                                      </div>
-                                                     <!-- Submit button -->
-                                                     <div class="form-group">
-                                                          <button type="submit" class="btn btn-default" name="btn-save" id="btn-content-submit">
-                                                          Submit
-                                                          </button>
-                                                     </div>
                                                   </form>
                                                   <!-- The form ends here -->
                                              </div>
                                              <div class="modal-footer">
-                                                  <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+                                                  <button type="button" class="btn btn-default" name="btn-save" id="btn-content-submit" data-dismiss="modal">Submit</button>
                                              </div>
                                         </div>
                                    </div>
@@ -125,7 +118,7 @@
                                 <table class="table" id="pagination_data">
                                     <thead>
                                         <tr>
-                                              <!-- Displaying the data extracted from running the query in a tabular format. -->
+                                             <!-- Displaying the data extracted from running the query in a tabular format. -->
                                              <th>Date</th>
                                              <th>Message Id</th>
                                              <th>Activity</th>
@@ -160,6 +153,7 @@
 
 </body>
 
+<!-- script for opening and closing of the nav bar -->
 <script>
      function openNav()
      {
@@ -174,6 +168,7 @@
      }
 </script>
 
+<!-- Script for pagination. -->
 <script>
      $(document).ready(function(){
           load_data();
@@ -197,11 +192,13 @@
 
 </body>
 
+<!-- Script for loading data in same page using AJAX-->
 <script>
     $(document).ready(function(){
      $('#btn-content-submit').click(function(e){
 
-          e.preventDefault(); //This prevents the default action of the button
+          //This prevents the default action of the button
+          e.preventDefault();
           // console.log("works");
           var fromDate = $('#fromDate').val();
           var toDate = $('#toDate').val();
@@ -223,10 +220,9 @@
                          Content : Content,
                          Activity : Activity
            		}, // sending the value of counter and blogtag to the server
-                    //data:{email:email},
                     success:function(data){
-                    // $('#displayHtml').html(data);
-                    $("#pagination_data").empty(); // Clearing the table contents so that the new fetched data from the filtering can be populated here.
+                    // Clearing the table contents so that the new fetched data from the filtering can be populated here.
+                    $("#pagination_data").empty();
                     // console.log(data);
                     $('#pagination_data').html(data);
                     }
@@ -235,35 +231,5 @@
      });
 });
  </script>
-
-<!-- <script>
-
-$(document).ready(function(){
-$('#btn-content-submit').click(function(){
-
-
- $.ajax({
-
- 		data :{
-               fromDate : fromDate,
-               toDate : toDate,
- 			EmailId : EmailId,
-               Content : Content,
-               Activity : Activity
- 		}, // sending the value of counter and blogtag to the server
-
- 		type: 'POST',
- 		url : 'filter.php' file for server side functions.
-
- 	})
-
-     .done(function(data){ // This function will execute after the AJAX request.
-
-      	console.log("works");
-    	});
-}
-}
-
-</script> -->
 
 </html>

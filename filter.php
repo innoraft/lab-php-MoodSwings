@@ -1,3 +1,4 @@
+<!-- This file handles the actions for filtering the options -->
 
      <?php
      include 'dbconfig.php';
@@ -42,5 +43,5 @@
                   <td><?php echo $row['MessageId'] ?></td>
                   <td><?php echo $row['Activity'] ?></td>
                   <td><?php echo $row['Content'] ?></td>
-     
+
           <?php } ?>

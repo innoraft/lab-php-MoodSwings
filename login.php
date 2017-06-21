@@ -1,7 +1,6 @@
+<!-- This file takes values from index.php and runs a query to login a user into the portal -->
+
 <?php
-
-// This file is for logging in a new user.
-
 include 'dbconfig.php';
 session_start();
 
@@ -15,8 +14,8 @@ if(isset($_POST['btn-login']))
      {
 
           // Storing the user mail and user passwords in the variables $mail and $password respectively.
-          $mail=$_POST['user_mail'];
-          $password=$_POST['user_password'];
+          $mail=$_POST['email'];
+          $password=$_POST['password'];
           // Encrypting password with md5.
           $password=md5($password);
 
@@ -30,6 +29,7 @@ if(isset($_POST['btn-login']))
           $get_mail= $get_value['EmailId'];
           $get_pass= $get_value['Password'];
 
+          $_SESSION["username"] = $get_mail;
           // Checking if the database is not empty i.e. if there is atleast one row then the following code will be executed.
           if($sql_row > 0)
                {

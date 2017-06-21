@@ -1,3 +1,5 @@
+<!-- This file deals with displaying the chart, the data of which comes from chartData.php -->
+
 <!-- Styles -->
 <style>
 #chartdiv {

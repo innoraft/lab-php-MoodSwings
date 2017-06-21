@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- This file deals with making the api call to extract the messages from the inbox and populating it in a database -->
+
+<!DOCTYPE html>
+<html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,7 +39,6 @@ $client->addScope('https://mail.google.com/');
 // Create Gmail Service.
 $service = new Google_Service_Gmail($client);
 
-// Check if the user is logged out.
 if (isset($_REQUEST['logout'])) {
      unset($_SESSION['access_token']);
 }
@@ -209,18 +210,38 @@ try
                                                        $data = $messages->getSnippet();
                                                        // echo "<strong>String:</strong> $data";
 
+                                                       // preg_match_all("/\#(.*?)\:/", $data, $arrayData);
+                                                       // $arrayData = implode(" ",$arrayData[1]);
+                                                       // echo $arrayData;
+                                                       // print "<pre>";
+                                                       // print_r($arrayData[1]);
+                                                       // print "</pre>";
+
+                                                       preg_match_all("/\#(.*?)\:/", $data, $arrayActivity);
+                                                       $stringActivity = implode(" ",$arrayActivity[1]);
+                                                       // print "<pre>";
+                                                       // print_r($arrayActivity[1]);
+                                                       // print "</pre>";
+
+                                                       preg_match_all("/\:(.*?)\#/", $data, $arrayContent);
+                                                       $stringContent = implode(" ",$arrayContent[1]);
+                                                       // print "<pre>";
+                                                       // print_r($arrayContent[1]);
+                                                       // print "</pre>";
+
                                                        // remove the +1 if you don't want the ? included.
-                                                       $cut_position = strpos($data, ':');
-                                                       $string= substr($data, 0, $cut_position);
-                                                       $activity = substr($string, strpos($string, ";") +1);
+                                                       // $cut_position = strpos($data, ':');
+                                                       // $string= substr($data, 0, $cut_position);
+                                                       // $activity = substr($string, strpos($string, ";") +1);
                                                        // displays the activity.
                                                        // echo "<strong>Activity:</strong> $activity<br>";
 
-                                                       $content = substr($data, strpos($data, ":") +1);
+                                                       // $content = substr($data, strpos($data, ":") +1);
                                                        // Triming the spaces.
-                                                       $emotions = trim($content);
+                                                       // $emotions = trim($content);
                                                        // displays the content.
                                                        // echo "<strong>Content:</strong> $emotions<br>";
+
 
                                                             foreach ($messages->payload->headers as $dateEmail=>$value)
                                                                  {
@@ -264,15 +285,15 @@ try
                                                                            <!-- Code to print values in tabular format starts here -->
                                                                                 <td><?php echo $id_key ?></td>
                                                                                 <td><?php echo $id_val->id ?></td>
-                                                                                <td><?php echo $activity ?></td>
-                                                                                <td><?php echo $emotions ?></td>
-                                                                                <td><?php echo $date ?></td>
+                                                                                <td><?php echo $stringActivity ?></td>
+                                                                                <td><?php echo $stringContent ?></td>
+                                                                                <td><?php echo $date?></td>
                                                                                 <td><?php echo $stringEmail ?></td>
                                                                            </tr>
                                                                            <!-- Code to print values in tabular format ends here -->
 
                                                                            <?php
-                                                                           $sql=mysql_query("insert into Messages( MessageId, Activity, Content, Date, EmailId) VALUES ( '$id', '$activity', '$emotions', '$timestamp', '$stringEmail')");
+                                                                           $sql=mysql_query("insert into Messages( MessageId, Activity, Content, Date, EmailId) VALUES ( '$id', '$stringActivity', '$stringContent', '$timestamp', '$stringEmail')");
                                                                            if ($sql)
                                                                                 {
                                                                                      // echo "<strong>New record created successfully</strong><br><br>";

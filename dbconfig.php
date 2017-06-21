@@ -1,7 +1,9 @@
+<!-- This is the configuration file for the database -->
+
 <?php
 include ("initialization/dbcredentials.php");
 
-// This file is for configuring the database.
+// User needs to provide the server name,user name and password of the database here
 
 $db = mysql_connect( $serverName, $userName, $password );
 mysql_select_db( $databaseName, $db);
