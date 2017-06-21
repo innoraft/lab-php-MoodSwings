@@ -1,2 +1,0 @@
-1. There needs to a separate pagination file for users table.
-2. There needs to be a separate filter file for users table.
