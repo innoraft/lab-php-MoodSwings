@@ -42,11 +42,13 @@ if(isset($_POST['btn-login']))
 
                                         if($get_user_id==1)
                                              {
+                                                  $_SESSION['loggedIn'] = true;
                                                   // Storing a value in a $_SESSION[''] variable means it can be accessed from other files also.
                                                   $_SESSION['EmailId']= $get_mail;
                                                   header('location:dashboardAdmin.php?msg=successful');
                                              }
                                              else{
+                                                  $_SESSION['loggedIn'] = true;
                                                   header('location:dashboardNonAdmin.php?msg=successful');
 
                                              }

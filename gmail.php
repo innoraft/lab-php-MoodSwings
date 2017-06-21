@@ -12,6 +12,10 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <link href="assets/css/styleGmail.css" rel="stylesheet" type="text/css" media="screen">
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
+
+    <!-- Stylesheet for logout button -->
+    <link rel="stylesheet" href="assets/css/logoutButton.css">
+
 </head>
 
 <body>
@@ -22,6 +26,8 @@ include 'dbconfig.php';
 
 // Start Session.
 session_start();
+
+if ($_SESSION['loggedIn'] == true) {
 
 // Include Autoloader.
 require 'vendor/autoload.php';
@@ -166,6 +172,8 @@ try
                               </form>
                          </ul>
                     </li>
+                    <a href="logout.php"><button class="logout" name="logout">Log Out</button></a>
+
                 </ul>
           </nav>
 
@@ -357,6 +365,9 @@ catch (Google_Auth_Exception $e)
           });
      });
  </script>
-
+ <?php }
+ else {
+      header('location:index.php?msg=user_not_logged_in');
+ } ?>
 </body>
 </html>

@@ -11,9 +11,15 @@
     <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.14.0/jquery.validate.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Oleo+Script" rel="stylesheet">
     <link href="assets/css/styleDashboardNonAdmin.css" rel="stylesheet" type="text/css" media="screen">
+
+    <link rel="stylesheet" href="assets/css/logoutButton.css">
 </head>
 
 <body>
+     <?php
+     session_start();
+      if ($_SESSION['loggedIn'] == true) {
+      ?>
      <div class="col-md-4">
           <div class="row row_charts">
                <div class="card card-1">
@@ -42,6 +48,7 @@
                <a href="displayHtml.php" class="button-mtable">
                <span>Messages Table</span>
                </a>
+               <a href="logout.php"><button class="logout" name="logout">Log Out</button></a>
           </div>
      </div>
      <div class="col-md-4">
@@ -56,7 +63,10 @@
                </div>
           </div>
      </div>
-
+<?php }
+else {
+     header('location:index.php?msg=user_not_logged_in');
+} ?>
 </body>
 <script>
 $(document).ready(function(){
